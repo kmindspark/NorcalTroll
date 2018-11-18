@@ -9,21 +9,21 @@ client.on('message', message => {
    if (message.content === 'ping') {
       message.reply('pong');
    }
-   else if (message.content.toLowerCase().includes('winning worlds')) {
+   if (message.content.toLowerCase().includes('winning worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
    }
-   else if (message.content.endsWith(".")) {
+   if (message.content.endsWith(".")) {
       message.delete(1000);
    }
-   else if (message.content.toLowerCase().includes("leek")) {
+   if (message.content.toLowerCase().includes("leek")) {
       message.channel.send('fingerslip?');
    }
-   else if (message.content.toLowerCase().includes("vex is bad")) {
+   if (message.content.toLowerCase().includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
+   if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
    }
 });
