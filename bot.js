@@ -9,6 +9,9 @@ client.on('message', message => {
    if (message.content === 'ping') {
       message.reply('pong');
    }
+   if (message.content.includes('winning worlds')) {
+      message.reply('8k WINNING WORLDS!')
+   }
 });
 
 // THIS  MUST  BE  THIS  WAY
