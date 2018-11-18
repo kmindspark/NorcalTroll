@@ -9,8 +9,11 @@ client.on('message', message => {
    if (message.content === 'ping') {
       message.reply('pong');
    }
-   if (message.content.includes('winning worlds')) {
-      message.channel.send('8k WINNING WORLDS!')
+   if (message.content.toLowerCase().includes('winning worlds')) {
+      message.channel.send('8k IS WINNING WORLDS!')
+   }
+   if (message.content.endsWith(".")) {
+      message.delete(2000);
    }
 });
 
