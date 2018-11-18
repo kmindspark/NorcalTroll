@@ -7,10 +7,12 @@ client.on('ready', () => {
 
 client.on('message', message => {
    if (message.content === 'ping') {
-      message.reply('pong.');
+      message.reply('pong');
    }
    else if (message.content.toLowerCase().includes('winning worlds')) {
-      message.channel.send('8k IS WINNING WORLDS!');
+      if (message.author.id !== client.user.id) {
+         message.channel.send('8k IS WINNING WORLDS!');
+      }
    }
    else if (message.content.endsWith(".")) {
       message.delete(1000);
@@ -21,7 +23,7 @@ client.on('message', message => {
    else if (message.content.toLowerCase().includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if ((Math.floor((Math.random() * 50) + 1)) == 42) {
+   else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
    }
 });
