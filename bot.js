@@ -19,7 +19,7 @@ client.on('message', message => {
    }
    if (message.content.toLowerCase().includes("leek")) {
       message.channel.send('fingerslip?');
-      setTimeout(function () { message.channel.send('made u look?'); }, 1000);
+      setTimeout(function () { message.channel.send('made u look'); }, 1000);
    }
    if (message.content.toLowerCase().includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
