@@ -21,9 +21,6 @@ client.on('message', message => {
    else if (message.content.toLowerCase().includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if ((Math.floor((Math.random() * 50) + 1)) == 42) {
-      message.channel.send('Hello everyone!')
-   }
 });
 
 // THIS  MUST  BE  THIS  WAY
