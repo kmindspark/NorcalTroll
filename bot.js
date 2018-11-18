@@ -23,7 +23,7 @@ client.on('message', message => {
       message.channel.send('that\'s why I quit');
    }
    else if ((Math.floor((Math.random() * 50) + 1)) == 42) {
-      message.channel.send('Hello everyone!')
+      message.channel.send('Hello everyone!');
    }
 });
 
