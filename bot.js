@@ -6,12 +6,14 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
+   if (message.content === 'ping') {
+      message.reply('pong');
+   }
    if (message.content.contains("winning worlds")) {
-      client.message.send("8k WINNING WORLDS!")
+      message.channel.send("8k WINNING WORLDS!")
    }
    if (message.content.startsWith("!predict")) {
-
-      client.message.send("")
+      message.channel.send("")
    }
    if (message.content.endsWith(".")) {
       message.delete(2000);
