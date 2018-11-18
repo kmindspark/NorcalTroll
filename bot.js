@@ -10,7 +10,7 @@ client.on('message', message => {
       message.reply('pong');
    }
    if (message.content.includes('winning worlds')) {
-      message.reply('8k WINNING WORLDS!')
+      message.channel.send('8k WINNING WORLDS!')
    }
 });
 
