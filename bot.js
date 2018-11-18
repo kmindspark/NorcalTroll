@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+var cron = require('node-cron');
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -8,6 +9,9 @@ client.on('ready', () => {
 client.on('message', message => {
    if (message.content === 'ping') {
       message.reply('pong.');
+   }
+   else if (message.content.toLowerCase().includes('winning worlds')) {
+      message.channel.send('8k IS WINNING WORLDS!')
    }
    else if (message.content.endsWith(".")) {
       message.delete(1000);
