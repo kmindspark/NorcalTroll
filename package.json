@@ -1,15 +1,13 @@
 {
-   "name": "norcal-troller",
-   "version": "1.0.0",
-   "description": "Norcal Troller",
+   "name": "Test",
+   "description": "Test",
+   "version": "0.0.0",
    "main": "bot.js",
-   "author": "Kau Kau",
    "scripts": {
       "start": "node bot.js"
    },
    "dependencies": {
-      "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-      "request": "^2.81.0",
-      "winston": "^3.1.0"
+      "discord.js": "11.1.0",
+      "request": "2.81.0"
    }
 }
