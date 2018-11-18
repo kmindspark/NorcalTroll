@@ -7,13 +7,13 @@ client.on('ready', () => {
 
 client.on('message', message => {
    if (message.content === 'ping') {
-      message.reply('pong');
+      message.reply('pong.');
    }
    if (message.content.toLowerCase().includes('winning worlds')) {
       message.channel.send('8k IS WINNING WORLDS!')
    }
    if (message.content.endsWith(".")) {
-      message.delete(2000);
+      message.delete(1000);
    }
 });
 
