@@ -11,7 +11,7 @@ client.on('message', message => {
       message.reply('pong.');
    }
    else if (message.content.toLowerCase().includes('winning worlds')) {
-      message.channel.send('8k IS WINNING WORLDS!')
+      message.channel.send('8k IS WINNING WORLDS!');
    }
    else if (message.content.endsWith(".")) {
       message.delete(1000);
