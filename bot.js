@@ -37,13 +37,16 @@ client.on('message', message => {
       message.channel.send('that\'s why I quit');
    }
    else if (message.member.displayName.includes("5776T")) {
-      message.channel.send("Yo DVT dude where did that excellence at DV go this year? Someone must have hacked.")
+      message.channel.send("Yo DVT why didn't u get excellence at DV")
    }
    else if (message.member.displayName.includes("Andrew | 315")) {
       message.channel.send("007 thrower")
    }
    else if (message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) {
       message.channel.send("shoulda picked Lewie at worlds")
+   }
+   else if (message.member.displayName.includes("Kau")) {
+      message.channel.send("Kau Kau! Mooooo!")
    }
    else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
@@ -52,3 +55,4 @@ client.on('message', message => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
+
