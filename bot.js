@@ -1,10 +1,18 @@
 const Discord = require('discord.js');
 var cron = require('node-cron');
+
 const client = new Discord.Client();
 
 client.on('ready', () => {
    console.log('I am ready!');
+   cron.schedule('20 15 * * *', () => {
+      client.channels.get('489645726914314270').send('@9pm bedtime Bedtime!')
+   });
 });
+
+function myRandom(odds) {
+   return (Math.floor((Math.random() * odds) + 1)) == 1;
+};
 
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
@@ -16,8 +24,7 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**ping:**                                  Fitch replies with *pong* \n \
-                          **Message containing \"winning worlds\"**: Fitch pulls a classic"
+            description: "**ping:**                                  Fitch replies with *pong*"
          }
       });
    }
@@ -45,10 +52,10 @@ client.on('message', message => {
    else if (message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) {
       message.channel.send("shoulda picked Lewie at worlds")
    }
-   else if (message.member.displayName.includes("Kau")) {
+   else if (message.member.displayName.includes("Kau") && myRandom(5)) {
       message.channel.send("Kau Kau! Mooooo!")
    }
-   else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
+   else if (myRandom(30)) {
       message.channel.send('Hello everyone!');
    }
 });
