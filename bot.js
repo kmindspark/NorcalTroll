@@ -7,25 +7,26 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-   if (message.content === 'ping') {
+   let curMessageContent = message.content.toLowerCase();
+   if (curMessageContent.endsWith(".")) {
+      message.delete(1000);
+   }
+   else if (curMessageContent === 'ping') {
       message.reply('pong');
    }
-   if (message.content.toLowerCase().includes('winning worlds')) {
+   else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
    }
-   if (message.content.endsWith(".")) {
-      message.delete(1000);
-   }
-   if (message.content.toLowerCase().includes("leek")) {
+   else if (curMessageContent.includes("leek")) {
       message.channel.send('fingerslip?');
       setTimeout(function () { message.channel.send('made u look'); }, 1000);
    }
-   if (message.content.toLowerCase().includes("vex is bad")) {
+   else if (curMessageContent.includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   if ((Math.floor((Math.random() * 30) + 1)) == 25) {
+   else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
    }
 });
