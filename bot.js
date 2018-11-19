@@ -14,11 +14,11 @@ client.on('message', message => {
    else if (curMessageContent === 'ping') {
       message.reply('pong');
    }
-   else if (curMessageContent.includes('win')) {
+   else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
-   }/*
+   }
    else if (curMessageContent.includes("leek")) {
       message.channel.send('fingerslip?');
       setTimeout(function () { message.channel.send('made u look'); }, 1000);
@@ -28,7 +28,7 @@ client.on('message', message => {
    }
    else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
-   }*/
+   }
 });
 
 // THIS  MUST  BE  THIS  WAY
