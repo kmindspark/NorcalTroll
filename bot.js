@@ -11,6 +11,15 @@ client.on('message', message => {
    if (curMessageContent.endsWith(".")) {
       message.delete(1000);
    }
+   else if (curMessageContent === "fitch help") {
+      message.channel.send({
+         embed: {
+            color: 3447003,
+            title: "So, you need Fitch's help!",
+            description: "Work in progress, like most robots when worlds is beginning."
+         }
+      });
+   }
    else if (curMessageContent === 'ping') {
       message.reply('pong');
    }
