@@ -5,7 +5,12 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
    console.log('I am ready!');
-   client.channels.get('489645726914314270').send('I have been rebooted!')
+   client.channels.get('514191866418298883').send('I have been rebooted!')
+   cron.schedule("* * * * *", function () {
+      client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
+      console.log("running a task every minute");
+   });
+
    /*var job = new cron.CronJob('22 40 * * *', function () {
       client.channels.get('489645726914314270').send('@9pm bedtime Bedtime!')
    }, null, true);*/
