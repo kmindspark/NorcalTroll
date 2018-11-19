@@ -14,7 +14,7 @@ client.on('message', message => {
    else if (curMessageContent === 'ping') {
       message.reply('pong');
    }
-   else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
+   else if (curMessageContent.includes('win')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
