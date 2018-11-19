@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-var cron = require('node-cron');
 const client = new Discord.Client();
 
 client.on('ready', () => {
