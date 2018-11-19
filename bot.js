@@ -6,18 +6,9 @@ const client = new Discord.Client();
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('514191866418298883').send('I have been rebooted!')
-   new CronJob('00 32 14 * * *', function () {
+   new CronJob('00 00 21 * * *', function () {
       client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
    }, null, true, 'America/Los_Angeles');
-
-   /*cron.schedule("00 15 20 * * *", function () {
-      client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
-      console.log("running a task every minute");
-   });*/
-
-   /*var job = new cron.CronJob('22 40 * * *', function () {
-      client.channels.get('489645726914314270').send('@9pm bedtime Bedtime!')
-   }, null, true);*/
 });
 
 function myRandom(odds) {
