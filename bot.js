@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('514191866418298883').send('I have been rebooted!')
-   cron.schedule("46 13 * * *", function () {
+   cron.schedule("05 * * * * *", function () {
       client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
       console.log("running a task every minute");
    });
@@ -30,12 +30,12 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**ping:**                                  Fitch replies with *pong*"
+            description: "**fitch ping:** Fitch replies with *pong*"
          }
       });
    }
-   else if (curMessageContent === 'ping') {
-      message.reply('pong');
+   else if (curMessageContent === 'fitch ping') {
+      message.reply('fitch pong');
    }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
@@ -49,14 +49,14 @@ client.on('message', message => {
    else if (curMessageContent.includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if (message.member.displayName.includes("5776T")) {
+   else if (message.member.displayName.includes("5776T") && myRandom(10)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV")
    }
-   else if (message.member.displayName.includes("Andrew | 315")) {
+   else if (message.member.displayName.includes("Andrew | 315") && myRandom(10)) {
       message.channel.send("007 thrower")
    }
-   else if (message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) {
-      message.channel.send("shoulda picked Lewie at worlds")
+   else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
+      message.channel.send("yo 315x shoulda picked Lewie at worlds")
    }
    else if (message.member.displayName.includes("Kau") && myRandom(15)) {
       message.channel.send("Kau Kau! Mooooo!")
