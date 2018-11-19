@@ -5,18 +5,19 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
    console.log('I am ready!');
+   var channelID = '489645726914314270';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
    new CronJob('00 00 21 * * *', function () {
-      client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
+      client.channels.get(channelID).send('@9pm bedtime Bedtime!')
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 9 * * *', function () {
       if (myRandom(3)) {
-         client.channels.get('514191866418298883').send('Good morning everyone!')
+         client.channels.get(channelID).send('Good morning everyone!')
       }
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 22 * * *', function () {
       if (myRandom(3)) {
-         client.channels.get('514191866418298883').send('Good night everyone!')
+         client.channels.get(channelID).send('Good night everyone!')
       }
    }, null, true, 'America/Los_Angeles');
 });
