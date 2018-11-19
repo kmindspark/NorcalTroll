@@ -16,7 +16,7 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "This feature is work in progress, like most robots at the start of VEX Worlds."
+            description: "**ping:** Fitch replies with *pong*"
          }
       });
    }
