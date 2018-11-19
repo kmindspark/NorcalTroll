@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('514191866418298883').send('I have been rebooted!')
-   cron.schedule("* * * * *", function () {
+   cron.schedule("46 13 * * *", function () {
       client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
       console.log("running a task every minute");
    });
@@ -58,10 +58,10 @@ client.on('message', message => {
    else if (message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) {
       message.channel.send("shoulda picked Lewie at worlds")
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(5)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(15)) {
       message.channel.send("Kau Kau! Mooooo!")
    }
-   else if (myRandom(30)) {
+   else if (myRandom(100)) {
       message.channel.send('Hello everyone!');
    }
 });
