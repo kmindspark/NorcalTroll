@@ -13,12 +13,12 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'ping') {
       message.reply('pong');
-   }/*
+   }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
-   }
+   }/*
    else if (curMessageContent.includes("leek")) {
       message.channel.send('fingerslip?');
       setTimeout(function () { message.channel.send('made u look'); }, 1000);
