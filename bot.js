@@ -16,8 +16,8 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**ping:** Fitch replies with **pong** \n \
-            **Message containing \"winning worlds\"**: Fitch pulls a classic"
+            description: "**ping:**                                  Fitch replies with *pong* \n \
+                          **Message containing \"winning worlds\"**: Fitch pulls a classic"
          }
       });
    }
