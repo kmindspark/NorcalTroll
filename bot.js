@@ -6,6 +6,9 @@ const client = new Discord.Client();
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('489645726914314270').send('I have been rebooted!')
+   var job = new cron.CronJob('20 33 * * *', function () {
+      client.channels.get('489645726914314270').send('@9pm bedtime Bedtime!')
+   }, null, true);
 });
 
 function myRandom(odds) {
