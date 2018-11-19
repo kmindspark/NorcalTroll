@@ -13,7 +13,7 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'ping') {
       message.reply('pong');
-   }
+   }/*
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
@@ -28,7 +28,7 @@ client.on('message', message => {
    }
    else if ((Math.floor((Math.random() * 30) + 1)) == 25) {
       message.channel.send('Hello everyone!');
-   }
+   }*/
 });
 
 // THIS  MUST  BE  THIS  WAY
