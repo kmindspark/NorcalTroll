@@ -1,15 +1,20 @@
 const Discord = require('discord.js');
-var cron = require('node-cron');
+var cronJob = require('cron');
 
 const client = new Discord.Client();
 
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('514191866418298883').send('I have been rebooted!')
-   cron.schedule("05 15 20 * * *", function () {
+   var cronJ = new cronJob("00 27 14 * * *", function () {
+      client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
+      console.log("Tick");
+   }, undefined, true, "America/Los_Angeles");
+
+   /*cron.schedule("00 15 20 * * *", function () {
       client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
       console.log("running a task every minute");
-   });
+   });*/
 
    /*var job = new cron.CronJob('22 40 * * *', function () {
       client.channels.get('489645726914314270').send('@9pm bedtime Bedtime!')
