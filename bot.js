@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
    console.log('I am ready!');
    client.channels.get('514191866418298883').send('I have been rebooted!')
-   cron.schedule("05 00 14 * * *", function () {
+   cron.schedule("05 07 * * * *", function () {
       client.channels.get('514191866418298883').send('@9pm bedtime Bedtime!')
       console.log("running a task every minute");
    });
