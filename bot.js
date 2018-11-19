@@ -16,7 +16,7 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "Work in progress, like most robots when worlds is beginning."
+            description: "This feature is work in progress, like most robots at the start of VEX Worlds."
          }
       });
    }
