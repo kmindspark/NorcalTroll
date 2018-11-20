@@ -71,8 +71,11 @@ client.on('message', message => {
    else if (message.member.displayName.includes("Kau") && myRandom(15)) {
       message.channel.send("Kau Kau! Mooooo!")
    }
-   else if (message.member.roles.find("name", "315")) {
+   else if (message.member.roles.find("name", "315") && myRandom(25)) {
       message.channel.send("315 throwers");
+   }
+   else if (message.member.roles.find("name", "139") && myRandom(20)) {
+      message.channel.send("139 is fake Gael Force");
    }
    else if (curMessageContent.includes("fitch")) {
       if (myRandom(5)) {
