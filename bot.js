@@ -76,10 +76,10 @@ client.on('message', message => {
          message.channel.send("Someone said my name?")
       }
       else if (myRandom(5)) {
-         message.channel.send("Fitch is better than Lewie")
+         message.channel.send("I'm better than Lewie")
       }
       else if (myRandom(5)) {
-         message.channel.send("8k was good while Fitch was part of it")
+         message.channel.send("8k was good while I was part of it")
       }
    }
    else if (myRandom(100)) {
