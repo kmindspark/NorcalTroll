@@ -77,6 +77,9 @@ client.on('message', message => {
    else if (message.member.roles.find("name", "139") && myRandom(20)) {
       message.channel.send("139 is fake Gael Force");
    }
+   else if (message.member.roles.find("name", "5327") && myRandom(20)) {
+      message.channel.send("Notebook tryhards");
+   }
    else if (curMessageContent.includes("fitch")) {
       if (myRandom(5)) {
          message.channel.send("Someone said my name?")
