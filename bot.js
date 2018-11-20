@@ -71,6 +71,9 @@ client.on('message', message => {
    else if (message.member.displayName.includes("Kau") && myRandom(15)) {
       message.channel.send("Kau Kau! Mooooo!")
    }
+   else if (message.member.roles.find("name", "315")) {
+      message.channel.send("315 throwers");
+   }
    else if (curMessageContent.includes("fitch")) {
       if (myRandom(5)) {
          message.channel.send("Someone said my name?")
