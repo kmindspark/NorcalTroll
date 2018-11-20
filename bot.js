@@ -29,8 +29,8 @@ function myRandom(odds) {
 
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
-   if (curMessageContent.includes("<@513802536055209985>") && myRandom(3)) {
-      message.channel.send("Stop with the pings jeez");
+   if (message.isMentioned(client.user)) {
+      message.reply('yo stop with the mentions plz');
    }
    if (curMessageContent.endsWith(".")) {
       message.delete(1000);
