@@ -29,7 +29,7 @@ function myRandom(odds) {
 
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
-   if (message.isMentioned(client.user)) {
+   if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
    if (curMessageContent.endsWith(".")) {
