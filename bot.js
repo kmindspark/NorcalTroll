@@ -30,7 +30,7 @@ function myRandom(odds) {
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
    if (curMessageContent.includes("<@513802536055209985>") && myRandom(3)) {
-      message.channel.send("Stop with the pings jeez")
+      message.channel.send("Stop with the pings jeez");
    }
    if (curMessageContent.endsWith(".")) {
       message.delete(1000);
