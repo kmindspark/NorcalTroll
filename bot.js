@@ -30,7 +30,7 @@ function myRandom(odds) {
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
    if (message.isMentioned(client.user)) {
-      message.reply('yo stop with the mentions plz');
+      message.reply('stop with the mentions');
    }
    if (curMessageContent.endsWith(".")) {
       message.delete(1000);
@@ -70,6 +70,17 @@ client.on('message', message => {
    }
    else if (message.member.displayName.includes("Kau") && myRandom(15)) {
       message.channel.send("Kau Kau! Mooooo!")
+   }
+   else if (curMessageContent.includes("fitch")) {
+      if (myRandom(5)) {
+         message.channel.send("Someone said my name?")
+      }
+      else if (myRandom(5)) {
+         message.channel.send("Fitch is better than Lewie")
+      }
+      else if (myRandom(5)) {
+         message.channel.send("8k was good while Fitch was part of it")
+      }
    }
    else if (myRandom(100)) {
       message.channel.send('Hello everyone!');
