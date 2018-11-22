@@ -32,7 +32,7 @@ client.on('message', message => {
       message.reply('stop with the mentions');
    }
    if (curMessageContent.endsWith(".")) {
-      message.delete(1000);
+      message.edit(message.content.slice(0, -1));
    }
    else if (curMessageContent === "fitch help") {
       message.channel.send({
