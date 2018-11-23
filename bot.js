@@ -49,7 +49,6 @@ client.on('message', message => {
    if (curMessageContentPeriod.endsWith(".")) {
       message.delete(1000);
    }
-
    if (message.member.displayName.includes("Ayush")) {
       if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
          message.delete(1000);
@@ -64,10 +63,10 @@ client.on('message', message => {
          }
       });
    }
+
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
    }
-
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(4)) {
          message.reply("I would say yes <:lewieok:494721325466910720>");
