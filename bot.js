@@ -26,6 +26,14 @@ function myRandom(odds) {
    return (Math.floor((Math.random() * odds) + 1)) == 1;
 };
 
+
+client.on('messageUpdate', (oldMessage, newMessage) => {
+   let curMessageContent = newMessage.content.toLowerCase();
+   if (curMessageContent.endsWith(".")) {
+      newMessage.edit(message.content.slice(0, -1));
+   }
+});
+
 client.on('message', message => {
    let curMessageContent = message.content.toLowerCase();
    if (message.isMentioned(client.user) && myRandom(5)) {
