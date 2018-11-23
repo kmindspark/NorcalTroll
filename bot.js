@@ -35,7 +35,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 });
 
 client.on('message', message => {
-   let curMessageContent = message.content.toLowerCase();
+   let curMessageContent = message.content.toLowerCase().trim();
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
