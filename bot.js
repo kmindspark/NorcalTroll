@@ -30,7 +30,7 @@ function myRandom(odds) {
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.toLowerCase();
    if (curMessageContent.endsWith(".")) {
-      newMessage.edit(message.content.slice(0, -1));
+      newMessage.edit(newMessage.content.slice(0, -1));
    }
 });
 
