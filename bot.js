@@ -67,13 +67,13 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent.includes('fitch predict')) {
-      if (myRandom(4)) {
+      if (myRandom(7)) {
          message.reply("I would say yes <:lewieok:494721325466910720>");
       }
-      else if (myRandom(3)) {
+      else if (myRandom(5)) {
          message.reply("As sure as 8k winning worlds! <:lewishappy:494723494727122950>");
       }
-      else if (myRandom(2)) {
+      else if (myRandom(3)) {
          message.reply("Nope not a chance <:sleep:494723089180000266>");
       }
       else {
