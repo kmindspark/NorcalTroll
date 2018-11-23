@@ -28,7 +28,7 @@ function myRandom(odds) {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-   let curMessageContent = message.content.trim().toLowerCase()
+   let curMessageContent = message.content.trim().toLowerCase();
    let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
@@ -41,7 +41,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 });
 
 client.on('message', message => {
-   let curMessageContent = message.content.trim().toLowerCase()
+   let curMessageContent = message.content.trim().toLowerCase();
    let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
@@ -63,7 +63,6 @@ client.on('message', message => {
          }
       });
    }
-
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
    }
