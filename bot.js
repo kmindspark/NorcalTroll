@@ -29,7 +29,7 @@ function myRandom(odds) {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = message.content.trim().toLowerCase()
-   curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
+   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
    }
@@ -42,19 +42,19 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on('message', message => {
    let curMessageContent = message.content.trim().toLowerCase()
-   curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
+   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
    if (curMessageContentPeriod.endsWith(".")) {
       message.delete(1000);
    }
-   /*
+
    if (message.member.displayName.includes("Ayush")) {
       if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
          message.delete(1000);
       }
-   }*/
+   }
    else if (curMessageContent === "fitch help") {
       message.channel.send({
          embed: {
@@ -67,7 +67,7 @@ client.on('message', message => {
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
    }
-   /*
+
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(4)) {
          message.reply("I would say yes :lewieok:");
@@ -81,7 +81,7 @@ client.on('message', message => {
       else {
          message.reply("Idk ask again");
       }
-   }*/
+   }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
