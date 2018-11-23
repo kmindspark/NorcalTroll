@@ -33,7 +33,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
    }
-   if (message.member.displayName.includes("Ayush")) {
+   if (newMessage.member.displayName.includes("Ayush")) {
       if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
          newMessage.delete(1000);
       }
