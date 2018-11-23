@@ -32,6 +32,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       newMessage.delete(1000);
    }
+
 });
 
 client.on('message', message => {
