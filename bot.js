@@ -81,13 +81,13 @@ client.on('message', message => {
    else if (message.member.displayName.includes("5776T") && myRandom(10)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV")
    }
-   else if (message.member.displayName.includes("Andrew | 315") && myRandom(10)) {
+   else if (message.member.displayName.includes("Andrew | 315") && myRandom(20)) {
       message.channel.send("007 thrower")
    }
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
       message.channel.send("yo 315x shoulda picked Lewie at worlds")
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(15)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(25)) {
       message.channel.send("Kau Kau! Mooooo!")
    }
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
