@@ -29,17 +29,21 @@ function myRandom(odds) {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.trim().toLowerCase().replace(/\s/g, '');
-   if (curMessageContent.includes(".") || curMessageContent.includes(".`") || curMessageContent.includes(".```")) {
+   curMessageContent = curMessageContent.replace(/\*/g, '');
+   curMessageContent = curMessageContent.replace(/\~/g, '');
+   if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       newMessage.delete(1000);
    }
 });
 
 client.on('message', message => {
    let curMessageContent = message.content.trim().toLowerCase().replace(/\s/g, '');
+   curMessageContent = curMessageContent.replace(/\*/g, '');
+   curMessageContent = curMessageContent.replace(/\~/g, '');
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
-   if (curMessageContent.includes(".") || curMessageContent.includes(".`") || curMessageContent.includes(".```")) {
+   if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       message.delete(1000);
    }
    else if (curMessageContent === "fitch help") {
