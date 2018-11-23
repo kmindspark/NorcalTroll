@@ -28,16 +28,16 @@ function myRandom(odds) {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-   /*let curMessageContent = message.content.trim().toLowerCase();
-   let curMessageContentPeriod = curMessageContent.replace(/\*///g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
-   /*if (curMessageContentPeriod.endsWith(".")) {
+   let curMessageContent = message.content.trim().toLowerCase();
+   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
+   if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
    }
    if (message.member.displayName.includes("Ayush")) {
       if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
          newMessage.delete(1000);
       }
-   }*/
+   }
 });
 
 client.on('message', message => {
