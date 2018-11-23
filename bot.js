@@ -59,12 +59,26 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**fitch ping:** Fitch replies with *pong*"
+            description: "**fitch ping:** Fitch replies with *pong* \n **fitch predict <question>:** Fitch gives a prediction!"
          }
       });
    }
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
+   }
+   else if (curMessageContent.includes('fitch predict')) {
+      if (myRandom(4)) {
+         message.reply("I would say yes :lewieok:");
+      }
+      else if (myRandom(3)) {
+         message.reply("As sure as 8k winning worlds! :lewishappy:")
+      }
+      else if (myRandom(2)) {
+         message.reply("Nope not a chance :sleep: ")
+      }
+      else {
+         message.reply("Idk ask again")
+      }
    }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
       if (message.author.id !== client.user.id) {
@@ -88,7 +102,7 @@ client.on('message', message => {
       message.channel.send("yo 315x shoulda picked Lewie at worlds")
    }
    else if (message.member.displayName.includes("Kau") && myRandom(25)) {
-      message.channel.send("Kau Kau! Mooooo!")
+      message.channel.send("Kau Kau! Mooooo! :MOOOOOO: ")
    }
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
       message.channel.send("315 throwers");
