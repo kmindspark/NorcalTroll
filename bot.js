@@ -76,7 +76,7 @@ client.on('message', message => {
          message.reply("As sure as 8k winning worlds! <:lewishappy:494723494727122950>");
       }
       else if (myRandom(2)) {
-         message.reply("Nope not a chance <:sleep:494723089180000266> ");
+         message.reply("Nope not a chance <:sleep:494723089180000266>");
       }
       else {
          message.reply("Idk ask again");
