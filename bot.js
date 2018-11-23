@@ -29,7 +29,7 @@ function myRandom(odds) {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.toLowerCase();
-   if (curMessageContent.endsWith(".")) {
+   if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       newMessage.delete(1000);
    }
 });
@@ -39,7 +39,7 @@ client.on('message', message => {
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
-   if (curMessageContent.endsWith(".")) {
+   if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       message.delete(1000);
    }
    else if (curMessageContent === "fitch help") {
