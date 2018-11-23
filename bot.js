@@ -33,6 +33,11 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
    }
+   if (newMessage.author.username.includes("Ayush")) {
+      if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
+         newMessage.delete(1000);
+      }
+   }
 });
 
 client.on('message', message => {
@@ -43,6 +48,11 @@ client.on('message', message => {
    }
    if (curMessageContentPeriod.endsWith(".")) {
       message.delete(1000);
+   }
+   if (message.author.username.includes("Ayush")) {
+      if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
+         message.delete(1000);
+      }
    }
    else if (curMessageContent === "fitch help") {
       message.channel.send({
