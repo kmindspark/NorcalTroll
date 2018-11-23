@@ -107,7 +107,7 @@ client.on('message', message => {
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
       message.channel.send("315 throwers");
    }
-   else if (message.member.roles.find("name", "139") && myRandom(20)) {
+   else if (message.member.roles.find("name", "139") && myRandom(35)) {
       message.channel.send("139 is fake Gael Force");
    }
    else if (message.member.roles.find("name", "5327") && myRandom(20)) {
