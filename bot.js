@@ -70,13 +70,13 @@ client.on('message', message => {
 
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(4)) {
-         message.reply("I would say yes :lewieok:");
+         message.reply("I would say yes <:lewieok:494721325466910720>");
       }
       else if (myRandom(3)) {
-         message.reply("As sure as 8k winning worlds! :lewishappy:");
+         message.reply("As sure as 8k winning worlds! <:lewishappy:494723494727122950>");
       }
       else if (myRandom(2)) {
-         message.reply("Nope not a chance :sleep: ");
+         message.reply("Nope not a chance <:sleep:494723089180000266> ");
       }
       else {
          message.reply("Idk ask again");
@@ -104,7 +104,7 @@ client.on('message', message => {
       message.channel.send("yo 315x shoulda picked Lewie at worlds")
    }
    else if (message.member.displayName.includes("Kau") && myRandom(25)) {
-      message.channel.send("Kau Kau! Mooooo! :MOOOOOO: ")
+      message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>")
    }
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
       message.channel.send("315 throwers");
