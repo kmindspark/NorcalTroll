@@ -46,14 +46,14 @@ client.on('message', message => {
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
-   /*if (curMessageContentPeriod.endsWith(".")) {
+   if (curMessageContentPeriod.endsWith(".")) {
       message.delete(1000);
    }
    if (message.member.displayName.includes("Ayush")) {
       if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
          message.delete(1000);
       }
-   }*/
+   }
    else if (curMessageContent === "fitch help") {
       message.channel.send({
          embed: {
