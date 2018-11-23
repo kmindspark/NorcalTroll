@@ -28,7 +28,7 @@ function myRandom(odds) {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-   let curMessageContent = newMessage.content.toLowerCase();
+   let curMessageContent = newMessage.content.toLowerCase().trim();
    if (curMessageContent.endsWith(".") || curMessageContent.endsWith(".`") || curMessageContent.endsWith(".```")) {
       newMessage.delete(1000);
    }
