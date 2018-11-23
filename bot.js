@@ -33,7 +33,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(1000);
    }
-   if (newMessage.author.username.includes("Ayush")) {
+   if (message.member.displayName.includes("Ayush")) {
       if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
          newMessage.delete(1000);
       }
@@ -93,16 +93,16 @@ client.on('message', message => {
       message.channel.send('that\'s why I quit');
    }
    else if (message.member.displayName.includes("5776T") && myRandom(10)) {
-      message.channel.send("Yo DVT why didn't u get excellence at DV")
+      message.channel.send("Yo DVT why didn't u get excellence at DV");
    }
    else if (message.member.displayName.includes("Andrew | 315") && myRandom(20)) {
-      message.channel.send("007 thrower")
+      message.channel.send("007 thrower");
    }
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
-      message.channel.send("yo 315x shoulda picked Lewie at worlds")
+      message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
    else if (message.member.displayName.includes("Kau") && myRandom(25)) {
-      message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>")
+      message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>");
    }
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
       message.channel.send("315 throwers");
@@ -115,13 +115,13 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes("fitch")) {
       if (myRandom(5)) {
-         message.channel.send("Someone said my name?")
+         message.channel.send("Someone said my name?");
       }
       else if (myRandom(5)) {
-         message.channel.send("I'm better than Lewie")
+         message.channel.send("I'm better than Lewie");
       }
       else if (myRandom(5)) {
-         message.channel.send("8k was good while I was part of it")
+         message.channel.send("8k was good while I was part of it");
       }
    }
    else if (myRandom(100)) {
