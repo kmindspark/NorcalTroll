@@ -71,13 +71,13 @@ client.on('message', message => {
          message.reply("I would say yes :lewieok:");
       }
       else if (myRandom(3)) {
-         message.reply("As sure as 8k winning worlds! :lewishappy:")
+         message.reply("As sure as 8k winning worlds! :lewishappy:");
       }
       else if (myRandom(2)) {
-         message.reply("Nope not a chance :sleep: ")
+         message.reply("Nope not a chance :sleep: ");
       }
       else {
-         message.reply("Idk ask again")
+         message.reply("Idk ask again");
       }
    }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
