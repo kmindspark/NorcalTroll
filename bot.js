@@ -41,7 +41,7 @@ client.on('message', message => {
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
-   if (curMessageContentPeriod) {
+   if (curMessageContentPeriod.endsWith(".")) {
       message.delete(1000);
    }
    else if (curMessageContent === "fitch help") {
