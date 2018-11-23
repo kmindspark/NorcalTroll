@@ -30,7 +30,7 @@ function myRandom(odds) {
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.toLowerCase();
    if (curMessageContent.endsWith(".")) {
-      newMessage.edit(newMessage.content.slice(0, -1));
+      newMessage.delete(1000);
    }
 });
 
@@ -40,7 +40,7 @@ client.on('message', message => {
       message.reply('stop with the mentions');
    }
    if (curMessageContent.endsWith(".")) {
-      message.edit(message.content.slice(0, -1));
+      message.delete(1000);
    }
    else if (curMessageContent === "fitch help") {
       message.channel.send({
