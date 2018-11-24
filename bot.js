@@ -10,7 +10,7 @@ function httpGet(theUrl) {
    xmlHttp.send(null);
    return xmlHttp.responseText;
 }
-
+/*
 function getWinPercent(teamOfInterest) {
    /*let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
    let result = JSON.parse(resp).result;
@@ -25,31 +25,31 @@ function getWinPercent(teamOfInterest) {
       if (result[i].redscore == result[i].bluescore) {
          tie++;
       }*/
-   /*else if (result[i].redscore > result[i].bluescore) {
-      if (red) {
-         win++;
-      }
-      else {
-         loss++;
-      }
+/*else if (result[i].redscore > result[i].bluescore) {
+   if (red) {
+      win++;
    }
    else {
-      if (red) {
-         loss++;
-      }
-      else {
-         win++;
-      }
-   }
-}*/
-   return 0
-   if (win + loss + tie == 0) {
-      return 0
-   }
-   else {
-      return (win / (win + tie + loss));
+      loss++;
    }
 }
+else {
+   if (red) {
+      loss++;
+   }
+   else {
+      win++;
+   }
+}
+}
+return 0
+if (win + loss + tie == 0) {
+   return 0
+}
+else {
+   return (win / (win + tie + loss));
+}
+}*/
 
 
 client.on('ready', () => {
@@ -116,6 +116,7 @@ client.on('message', message => {
    else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
    }
+   /*
    else if (curMessageContent === 'f rank') {
       var teamsToRank = ['315G', '315X', '315Z', '315Y', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327A', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
       var vals = [];
@@ -140,8 +141,8 @@ client.on('message', message => {
             title: "Norcal Team Rankings",
             description: finalString
          }
-      });*/
-   }
+      });
+   }*/
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
