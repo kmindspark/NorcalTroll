@@ -25,7 +25,7 @@ function getWinPercent(teamOfInterest) {
       if (result[i].redscore == result[i].bluescore) {
          tie++;
       }
-      else if (result[i].redscore > result[i].bluescore) {
+      /*else if (result[i].redscore > result[i].bluescore) {
          if (red) {
             win++;
          }
@@ -40,7 +40,7 @@ function getWinPercent(teamOfInterest) {
          else {
             win++;
          }
-      }
+      }*/
    }
    return 0
    if (win + loss + tie == 0) {
