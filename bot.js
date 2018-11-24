@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 var CronJob = require('cron').CronJob;
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const client = new Discord.Client();
 
