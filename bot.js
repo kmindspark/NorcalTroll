@@ -13,35 +13,35 @@ function httpGet(theUrl) {
 
 function getWinPercent(teamOfInterest) {
    let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
-   /*let result = JSON.parse(resp).result;
+   let result = JSON.parse(resp).result;
    let win = 0;
    let tie = 0;
-   let loss = 0;*/
-   //for (i = 0; i < result.length; i++) {
-   /*var red = false;
-   if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-      red = true;
-   }
-   if (result[i].redscore == result[i].bluescore) {
-      tie++;
-   }
-   else if (result[i].redscore > result[i].bluescore) {
-      if (red) {
-         win++;
+   let loss = 0;
+   for (i = 0; i < result.length; i++) {
+      /*var red = false;
+      if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+         red = true;
+      }
+      if (result[i].redscore == result[i].bluescore) {
+         tie++;
+      }
+      else if (result[i].redscore > result[i].bluescore) {
+         if (red) {
+            win++;
+         }
+         else {
+            loss++;
+         }
       }
       else {
-         loss++;
-      }
+         if (red) {
+            loss++;
+         }
+         else {
+            win++;
+         }
+      }*/
    }
-   else {
-      if (red) {
-         loss++;
-      }
-      else {
-         win++;
-      }
-   }*/
-   //}
    return 0
    if (win + loss + tie == 0) {
       return 0
