@@ -18,7 +18,7 @@ function getWinPercent(teamOfInterest) {
    let tie = 0;
    let loss = 0;
    for (i = 0; i < result.length; i++) {
-      /*var red = false;
+      var red = false;
       if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
          red = true;
       }
@@ -40,7 +40,7 @@ function getWinPercent(teamOfInterest) {
          else {
             win++;
          }
-      }*/
+      }
    }
    return 0
    if (win + loss + tie == 0) {
