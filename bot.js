@@ -68,7 +68,7 @@ client.on('message', message => {
             color: 3447003,
             title: "So, you need Fitch's help!",
             description: "**fitch ping:** Fitch replies with *pong* \n **fitch predict <question>:** Fitch gives a prediction! \n \
-               ** fitch record<team>:** Fitch tells you the win - loss - tie record for the specified team."
+               ** fitch record <team>:** Fitch tells you the W-L-T record for the specified team."
          }
       });
    }
@@ -81,7 +81,6 @@ client.on('message', message => {
          //bad case
       }
       else {
-         message.reply("Feature in progress")
          let teamOfInterest = teams[2];
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
