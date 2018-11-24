@@ -87,29 +87,39 @@ client.on('message', message => {
          let win = 0;
          let tie = 0;
          let loss = 0;
-         if (teams.length == 3) {
+         let comparison = teams.length == 4;
+         let validComparison = !comparison;
+         if (teams.length >= 3) {
             for (i = 0; i < result.length; i++) {
                var red = false;
                if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                   red = true;
                }
-               if (result[i].redscore == result[i].bluescore) {
-                  tie++;
-               }
-               else if (result[i].redscore > result[i].bluescore) {
-                  if (red) {
-                     win++;
-                  }
-                  else {
-                     loss++;
+               if (comparison) {
+                  if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+                     || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+                     validComparison = true;
                   }
                }
-               else {
-                  if (red) {
-                     loss++;
+               if (validComparison) {
+                  if (result[i].redscore == result[i].bluescore) {
+                     tie++;
+                  }
+                  else if (result[i].redscore > result[i].bluescore) {
+                     if (red) {
+                        win++;
+                     }
+                     else {
+                        loss++;
+                     }
                   }
                   else {
-                     win++;
+                     if (red) {
+                        loss++;
+                     }
+                     else {
+                        win++;
+                     }
                   }
                }
             }
@@ -121,9 +131,6 @@ client.on('message', message => {
                }
             });
          }
-         /*if (teams.length == 4) {
-    
-         }*/
       }
    }
    else if (curMessageContent.includes('fitch predict')) {
