@@ -123,17 +123,19 @@ client.on('message', message => {
       var teamsToRank = ['315X', '315G', '315Z', '315Y', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
       var vals = [];
       let finalString = '';
-      message.reply("Retrieving results...")
+      message.reply("Retrieving results");
+      message.reply("" + teamsToRank.length);
       for (i = 0; i < teamsToRank.length; i++) {
          //message.reply(getWinPercent(teamsToRank[i]));
+         message.reply(teamsToRank[i])
          let curPercent = getWinPercent(teamsToRank[i], message);
          if (curPercent != 0) {
-            message.reply("Valid found...")
+            message.reply("Valid found")
          }
          vals.push(curPercent);
       }
 
-      message.reply("Ranking teams...")
+      message.reply("Ranking teams")
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
