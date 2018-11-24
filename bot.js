@@ -62,7 +62,7 @@ client.on('message', message => {
          message.delete(1000);
       }
    }
-   else if (curMessageContent === "fitch help") {
+   if (curMessageContent === "fitch help") {
       message.channel.send({
          embed: {
             color: 3447003,
@@ -123,10 +123,14 @@ client.on('message', message => {
                   }
                }
             }
+            let myAppend = "";
+            if (teams.length == 4) {
+               myAppend = " against " + teams[4].toUpperCase();
+            }
             message.channel.send({
                embed: {
                   color: 3447003,
-                  title: "Record for " + teamOfInterest,
+                  title: "Record for " + teamOfInterest + myAppend,
                   description: win + "-" + loss + "-" + tie
                }
             });
