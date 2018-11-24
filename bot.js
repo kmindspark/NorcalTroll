@@ -108,7 +108,7 @@ client.on('message', message => {
             color: 3447003,
             title: "So, you need Fitch's help!",
             description: "**f ping:** Fitch replies with *pong* \n **f predict <question>:** Fitch gives a prediction! \n \
-               ** f record <team>:** Fitch tells you the W-L-T record for the specified team."
+               ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n **f rank** Fitch gives you a ranking of NorCal teams based on win percentages."
          }
       });
    }
@@ -117,7 +117,7 @@ client.on('message', message => {
    }
 
    else if (curMessageContent === 'f rank') {
-      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
+      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D'];
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
