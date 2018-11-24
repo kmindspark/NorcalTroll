@@ -137,7 +137,7 @@ client.on('message', message => {
       message.channel.send({
          embed: {
             color: 16711782,
-            title: "Norcal Team Rankings",
+            title: "Norcal Team Rankings (win percentages)",
             description: finalString
          }
       });
