@@ -17,15 +17,15 @@ function getWinPercent(teamOfInterest, message) {
    let win = 0;
    let tie = 0;
    let loss = 0;
-   for (i = 0; i < result.length; i++) {
+   for (k = 0; k < result.length; k++) {
       var red = false;
-      if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+      if (result[k].red1 === teamOfInterest || result[k].red2 === teamOfInterest) {
          red = true;
       }
-      if (result[i].redscore == result[i].bluescore) {
+      if (result[k].redscore == result[k].bluescore) {
          tie++;
       }
-      else if (result[i].redscore > result[i].bluescore) {
+      else if (result[k].redscore > result[k].bluescore) {
          if (red) {
             win++;
          }
