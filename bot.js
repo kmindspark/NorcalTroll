@@ -120,14 +120,10 @@ client.on('message', message => {
       var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
       var vals = [];
       let finalString = '';
-      message.reply("Retrieving results");
-      let myc = 0
       for (i = 0; i < teamsToRank.length; i++) {
-         myc++;
          let curPercent = getWinPercent(teamsToRank[i], message);
          vals.push(curPercent);
       }
-      message.reply(myc);
 
       let count = 1
       while (teamsToRank.length > 0) {
