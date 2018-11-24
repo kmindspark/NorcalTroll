@@ -42,7 +42,7 @@ function getWinPercent(teamOfInterest, message) {
          }
       }
    }
-   if (teamOfInterest === "315X") {
+   if (teamOfInterest === "315G") {
       message.reply("" + win);
    }
    if (win + loss + tie == 0) {
