@@ -17,7 +17,7 @@ function getWinPercent(teamOfInterest) {
    let win = 0;
    let tie = 0;
    let loss = 0;
-   for (i = 0; i < result.length; i++) {
+   /*for (i = 0; i < result.length; i++) {
       var red = false;
       if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
          red = true;
@@ -47,7 +47,8 @@ function getWinPercent(teamOfInterest) {
    }
    else {
       return (win / (win + tie + loss));
-   }
+   }*/
+   return 0
 }
 
 client.on('ready', () => {
@@ -122,7 +123,7 @@ client.on('message', message => {
          message.reply(getWinPercent(teamsToRank[i]));
          vals.push(getWinPercent(teamsToRank[i]));
       }
-
+      /*
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
@@ -138,7 +139,7 @@ client.on('message', message => {
             title: "Norcal Team Rankings",
             description: finalString
          }
-      });
+      });*/
    }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
