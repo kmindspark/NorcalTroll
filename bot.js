@@ -97,7 +97,7 @@ client.on('message', message => {
                   tie++;
                }
                if (i == 0) {
-                  print(result[i].red1)
+                  message.reply(result[i].red1)
                }
                if (red) {
                   win++;
