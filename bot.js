@@ -124,8 +124,10 @@ client.on('message', message => {
       for (i = 0; i < teamsToRank.length; i++) {
          //message.reply(getWinPercent(teamsToRank[i]));
          let curPercent = getWinPercent(teamsToRank[i]);
+         if (curPercent != 0) {
+            message.reply("Valid found...")
+         }
          vals.push(curPercent);
-
       }
 
       message.reply("Ranking teams...")
