@@ -121,7 +121,7 @@ client.on('message', message => {
       var teamsToRank = ['315G', '315X', '315Z', '315Y', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
       var vals = [];
       let finalString = '';
-      for (i = 0; i < 1; i++) {
+      for (i = 0; i < teamsToRank.length; i++) {
          message.reply(getWinPercent(teamsToRank[i]));
          //vals.push(getWinPercent(teamsToRank[i]));
       }
