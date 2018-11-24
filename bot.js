@@ -79,7 +79,7 @@ client.on('message', message => {
          //bad case
       }
       else {
-         /*let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
          message.reply(resp);
          let parsedResp = JSON.parse(resp);
          if (teams.length == 3) {
