@@ -85,7 +85,7 @@ client.on('message', message => {
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
          let parsedResp = JSON.parse(resp);
          if (teams.length == 3) {
-            message.reply(parsedResp[1]);
+            message.reply(resp.length);
          }
          /*if (teams.length == 4) {
    
