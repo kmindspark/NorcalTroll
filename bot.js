@@ -119,6 +119,7 @@ client.on('message', message => {
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
+         message.reply(getWinPercent(teamsToRank[i]));
          vals.push(getWinPercent(teamsToRank[i]));
       }
 
