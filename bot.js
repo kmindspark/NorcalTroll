@@ -42,7 +42,6 @@ function getWinPercent(teamOfInterest) {
          }
       }
    }
-   return 0
    if (win + loss + tie == 0) {
       return 0
    }
