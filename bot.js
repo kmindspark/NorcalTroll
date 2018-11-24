@@ -62,20 +62,20 @@ client.on('message', message => {
          message.delete(1000);
       }
    }
-   if (curMessageContent === "fitch help") {
+   if (curMessageContent === "fitch help" || curMessageContent === "f help") {
       message.channel.send({
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**fitch ping:** Fitch replies with *pong* \n **fitch predict <question>:** Fitch gives a prediction! \n \
-               ** fitch record <team>:** Fitch tells you the W-L-T record for the specified team."
+            description: "**f ping:** Fitch replies with *pong* \n **f predict <question>:** Fitch gives a prediction! \n \
+               ** f record <team>:** Fitch tells you the W-L-T record for the specified team."
          }
       });
    }
-   else if (curMessageContent === 'fitch ping') {
+   else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
    }
-   else if (curMessageContent.includes('fitch record')) {
+   else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          //bad case
@@ -137,7 +137,7 @@ client.on('message', message => {
          }
       }
    }
-   else if (curMessageContent.includes('fitch predict')) {
+   else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
          message.reply("I would say yes <:lewieok:494721325466910720>");
       }
