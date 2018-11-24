@@ -96,6 +96,9 @@ client.on('message', message => {
                if (result[i].redscore == result[i].bluescore) {
                   tie++;
                }
+               if (i == 0) {
+                  print(result[i].red1)
+               }
                if (red) {
                   win++;
                }
