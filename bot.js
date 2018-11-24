@@ -96,6 +96,13 @@ client.on('message', message => {
                if (result[i].redscore == result[i].bluescore) {
                   tie++;
                }
+               if (red) {
+                  win++;
+               }
+               else {
+                  loss++;
+               }
+               /*
                else if (result[i].redscore > result[i].bluescore) {
                   if (red) {
                      win++;
@@ -111,7 +118,7 @@ client.on('message', message => {
                   else {
                      win++;
                   }
-               }
+               }*/
             }
             message.channel.send({
                embed: {
