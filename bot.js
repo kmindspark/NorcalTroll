@@ -123,7 +123,9 @@ client.on('message', message => {
       message.reply("Retrieving results...")
       for (i = 0; i < teamsToRank.length; i++) {
          //message.reply(getWinPercent(teamsToRank[i]));
-         vals.push(getWinPercent(teamsToRank[i]));
+         let curPercent = getWinPercent(teamsToRank[i]);
+         vals.push(curPercent);
+
       }
 
       message.reply("Ranking teams...")
