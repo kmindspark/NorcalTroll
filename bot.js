@@ -125,7 +125,9 @@ client.on('message', message => {
       let finalString = '';
       message.reply("Retrieving results");
       message.reply("" + teamsToRank.length);
+      let myc = 0
       for (i = 0; i < teamsToRank.length; i++) {
+         myc++;
          //message.reply(getWinPercent(teamsToRank[i]));
          message.reply(teamsToRank[i])
          let curPercent = getWinPercent(teamsToRank[i], message);
@@ -134,6 +136,7 @@ client.on('message', message => {
          }
          vals.push(curPercent);
       }
+      message.reply(myc);
 
       message.reply("Ranking teams")
       let count = 1
