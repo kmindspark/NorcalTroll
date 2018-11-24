@@ -74,18 +74,53 @@ client.on('message', message => {
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
    }
-   else if (curMessageContent.includes('fitch matches')) {
+   else if (curMessageContent.includes('fitch record')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          //bad case
       }
       else {
          message.reply("Feature in progress")
-
+         let teamOfInterest = curMessageContent[2];
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
          let parsedResp = JSON.parse(resp);
+         let resultArr = parsedResp.result
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
          if (teams.length == 3) {
-            message.reply(resp.length);
+            for (i = 0; i < result.length; i++) {
+               var red = false;
+               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+                  red = true;
+               }
+               if (result[i].redScore == result[i].blueScore) {
+                  tie++;
+               }
+               else if (result[i].redScore > result[i].blueScore) {
+                  if (red) {
+                     win++;
+                  }
+                  else {
+                     loss++;
+                  }
+               }
+               else {
+                  if (red) {
+                     loss++;
+                  }
+                  else {
+                     win++;
+                  }
+               }
+            }
+            message.channel.send({
+               embed: {
+                  color: 3447003,
+                  title: "Record for " + teamOfInterest,
+                  description: win + "-" + loss + "-" + tie
+               }
+            });
          }
          /*if (teams.length == 4) {
    
