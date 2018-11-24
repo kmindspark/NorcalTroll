@@ -129,7 +129,7 @@ client.on('message', message => {
             }
             message.channel.send({
                embed: {
-                  color: 3447003,
+                  color: 1302784,
                   title: "Record for " + teamOfInterest + myAppend,
                   description: win + "-" + loss + "-" + tie
                }
