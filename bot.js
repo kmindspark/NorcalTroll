@@ -18,13 +18,13 @@ function getWinPercent(teamOfInterest) {
    let tie = 0;
    let loss = 0;
    for (i = 0; i < result.length; i++) {
-      var red = false;
+      /*var red = false;
       if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
          red = true;
       }
       if (result[i].redscore == result[i].bluescore) {
          tie++;
-      }
+      }*/
       /*else if (result[i].redscore > result[i].bluescore) {
          if (red) {
             win++;
