@@ -74,7 +74,7 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent.includes('fitch matches')) {
-      let teams = str.split(" ");
+      let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          continue;
       }
