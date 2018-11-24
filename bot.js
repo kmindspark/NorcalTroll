@@ -11,7 +11,7 @@ function httpGet(theUrl) {
    return xmlHttp.responseText;
 }
 
-function getWinPercent(teamOfInterest) {
+function getWinPercent(teamOfInterest, message) {
    let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
    let result = JSON.parse(resp).result;
    let win = 0;
@@ -42,8 +42,11 @@ function getWinPercent(teamOfInterest) {
          }
       }
    }
+   if (teamOfInterest === "315X") {
+      message.reply("" + win);
+   }
    if (win + loss + tie == 0) {
-      return 0
+      return 0;
    }
    else {
       return (win / (win + tie + loss));
@@ -123,7 +126,7 @@ client.on('message', message => {
       message.reply("Retrieving results...")
       for (i = 0; i < teamsToRank.length; i++) {
          //message.reply(getWinPercent(teamsToRank[i]));
-         let curPercent = getWinPercent(teamsToRank[i]);
+         let curPercent = getWinPercent(teamsToRank[i], message);
          if (curPercent != 0) {
             message.reply("Valid found...")
          }
@@ -239,7 +242,7 @@ client.on('message', message => {
    else if (message.member.displayName.includes("5776T") && myRandom(10)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV");
    }
-   else if (message.member.displayName.includes("Andrew | 315") && myRandom(20)) {
+   else if (message.member.displayName.includes("Andrew") && myRandom(20)) {
       message.channel.send("007 thrower");
    }
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
