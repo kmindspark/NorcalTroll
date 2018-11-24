@@ -79,11 +79,11 @@ client.on('message', message => {
          //bad case
       }
       else {
-         message.reply("Feature in progress.")
-         /*
+         message.reply("Feature in progress")
+
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
-         message.reply(resp);
-         let parsedResp = JSON.parse(resp);
+         message.reply("Feature in progress 2");
+         /*let parsedResp = JSON.parse(resp);
          if (teams.length == 3) {
             message.reply(parsedResp[0]);
          }
