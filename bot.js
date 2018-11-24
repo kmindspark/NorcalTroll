@@ -51,6 +51,7 @@ function getWinPercent(teamOfInterest) {
    }
 }
 
+
 client.on('ready', () => {
    console.log('I am ready!');
    var channelID = '489645726914314270';
