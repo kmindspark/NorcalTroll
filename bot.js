@@ -87,10 +87,10 @@ client.on('message', message => {
          let win = 0;
          let tie = 0;
          let loss = 0;
-         let comparison = teams.length == 4;
-         let validComparison = !comparison;
          if (teams.length >= 3) {
             for (i = 0; i < result.length; i++) {
+               let comparison = teams.length == 4;
+               let validComparison = !comparison;
                var red = false;
                if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                   red = true;
