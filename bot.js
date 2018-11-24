@@ -83,7 +83,7 @@ client.on('message', message => {
       else {
          message.reply("Feature in progress")
          let teamOfInterest = teams[2];
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2]);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
