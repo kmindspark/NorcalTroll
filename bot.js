@@ -3,6 +3,13 @@ var CronJob = require('cron').CronJob;
 
 const client = new Discord.Client();
 
+function httpGet(theUrl) {
+   var xmlHttp = new XMLHttpRequest();
+   xmlHttp.open("GET", theUrl, false); // false for synchronous request
+   xmlHttp.send(null);
+   return xmlHttp.responseText;
+}
+
 client.on('ready', () => {
    console.log('I am ready!');
    var channelID = '489645726914314270';
@@ -65,6 +72,22 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
+   }
+   else if (curMessageContent.includes('fitch matches')) {
+      let teams = str.split(" ");
+      if (teams.length != 3 && teams.length != 4) {
+         continue;
+      }
+      let resp = httpGet("https://api.vexdb.io/v1/get_matches?team=" + teams[2])
+      JSON.parse(resp);
+      if (teams.length == 3) {
+         message.reply(resp[0])
+      }
+      if (teams.length == 4) {
+
+      }
+
+      let resp = httpGet()
    }
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(6)) {
