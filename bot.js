@@ -122,16 +122,16 @@ client.on('message', message => {
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
-         message.reply(getWinPercent(teamsToRank[i]));
-         //vals.push(getWinPercent(teamsToRank[i]));
+         //message.reply(getWinPercent(teamsToRank[i]));
+         vals.push(getWinPercent(teamsToRank[i]));
       }
-      /*
+
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + i + ". " + curTeam[0] + ": " + Math.round(original * 10000) / 100 + "\n"
+         finalString = finalString + i + ". " + curTeam[0] + ": " + Math.round(winPct * 10000) / 100 + "\n"
          count++;
       }
 
@@ -141,7 +141,7 @@ client.on('message', message => {
             title: "Norcal Team Rankings",
             description: finalString
          }
-      });*/
+      });
    }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
