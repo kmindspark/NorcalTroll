@@ -135,6 +135,7 @@ client.on('message', message => {
             message.reply("Valid found")
          }
          vals.push(curPercent);
+         message.reply("" + teamsToRank.length);
       }
       message.reply(myc);
 
