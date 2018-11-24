@@ -42,9 +42,6 @@ function getWinPercent(teamOfInterest, message) {
          }
       }
    }
-   if (teamOfInterest === "315G") {
-      message.reply("" + win);
-   }
    if (win + loss + tie == 0) {
       return 0;
    }
@@ -120,32 +117,24 @@ client.on('message', message => {
    }
 
    else if (curMessageContent === 'f rank') {
-      var teamsToRank = ['315X', '315G', '315Z', '315Y', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
+      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
       var vals = [];
       let finalString = '';
       message.reply("Retrieving results");
-      message.reply("" + teamsToRank.length);
       let myc = 0
       for (i = 0; i < teamsToRank.length; i++) {
          myc++;
-         //message.reply(getWinPercent(teamsToRank[i]));
-         message.reply(teamsToRank[i])
          let curPercent = getWinPercent(teamsToRank[i], message);
-         if (curPercent != 0) {
-            message.reply("Valid found")
-         }
          vals.push(curPercent);
-         message.reply("" + teamsToRank.length);
       }
       message.reply(myc);
 
-      message.reply("Ranking teams")
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct * 10000) / 100 + "\n"
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct * 10000) / 100 + "\%\n"
          count++;
       }
 
