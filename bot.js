@@ -172,7 +172,7 @@ client.on('message', message => {
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(25)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(35)) {
       message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>");
    }
    else if (message.member.roles.find("name", "315") && myRandom(25)) {
