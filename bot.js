@@ -195,7 +195,7 @@ client.on('message', message => {
          message.channel.send("8k was good while I was part of it");
       }
    }
-   else if (myRandom(100)) {
+   else if (myRandom(500)) {
       message.channel.send('Hello everyone!');
    }
 });
