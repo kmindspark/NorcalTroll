@@ -11,6 +11,45 @@ function httpGet(theUrl) {
    return xmlHttp.responseText;
 }
 
+function getWinPercent(teamOfInterest) {
+   let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+   let result = JSON.parse(resp).result;
+   let win = 0;
+   let tie = 0;
+   let loss = 0;
+   for (i = 0; i < result.length; i++) {
+      var red = false;
+      if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+         red = true;
+      }
+      if (result[i].redscore == result[i].bluescore) {
+         tie++;
+      }
+      else if (result[i].redscore > result[i].bluescore) {
+         if (red) {
+            win++;
+         }
+         else {
+            loss++;
+         }
+      }
+      else {
+         if (red) {
+            loss++;
+         }
+         else {
+            win++;
+         }
+      }
+   }
+   if (win + loss + tie == 0) {
+      return 0
+   }
+   else {
+      return (win / (win + tie + loss));
+   }
+}
+
 client.on('ready', () => {
    console.log('I am ready!');
    var channelID = '489645726914314270';
@@ -74,6 +113,31 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
+   }
+   else if (curMessageContent === 'f rank') {
+      var teamsToRank = ['315G', '315X', '315Z', '315Y', '315Z', '315R', '5776A', '5776T', '5776X', '86868R', '5327A', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D'];
+      var vals = [];
+      let finalString = '';
+      for (i = 0; i < teamsToRank.length; i++) {
+         vals.push(getWinPercent(teamsToRank[i]));
+      }
+
+      let count = 1
+      while (teamsToRank.length > 0) {
+         let i = vals.indexOf(Math.max(...vals));
+         let winPct = vals.splice(i, 1);
+         let curTeam = teamsToRank.splice(i, 1);
+         finalString = finalString + i + ". " + curTeam[0] + ": " + Math.round(original * 10000) / 100 + "\n"
+         count++;
+      }
+
+      message.channel.send({
+         embed: {
+            color: 16711782,
+            title: "Norcal Team Rankings",
+            description: finalString
+         }
+      });
    }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
