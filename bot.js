@@ -81,7 +81,7 @@ client.on('message', message => {
          //bad case
       }
       else {
-         let teamOfInterest = teams[2];
+         let teamOfInterest = teams[2].toUpperCase();
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
@@ -96,16 +96,6 @@ client.on('message', message => {
                if (result[i].redscore == result[i].bluescore) {
                   tie++;
                }
-               if (i == 0) {
-                  message.reply(result[i].red1)
-               }
-               if (red) {
-                  win++;
-               }
-               else {
-                  loss++;
-               }
-               /*
                else if (result[i].redscore > result[i].bluescore) {
                   if (red) {
                      win++;
@@ -121,7 +111,7 @@ client.on('message', message => {
                   else {
                      win++;
                   }
-               }*/
+               }
             }
             message.channel.send({
                embed: {
