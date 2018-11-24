@@ -115,7 +115,6 @@ client.on('message', message => {
    else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
    }
-
    else if (curMessageContent === 'f rank') {
       var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D'];
       var vals = [];
