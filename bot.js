@@ -72,7 +72,7 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'fitch ping') {
       message.reply('Pong!');
-   }
+   }/*
    else if (curMessageContent.includes('fitch matches')) {
       let teams = str.split(" ");
       if (teams.length != 3 && teams.length != 4) {
@@ -87,7 +87,7 @@ client.on('message', message => {
       if (teams.length == 4) {
 
       }
-   }
+   }*/
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(6)) {
          message.reply("I would say yes <:lewieok:494721325466910720>");
