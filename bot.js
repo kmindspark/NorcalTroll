@@ -93,10 +93,10 @@ client.on('message', message => {
                if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                   red = true;
                }
-               if (result[i].redScore == result[i].blueScore) {
+               if (result[i].redscore == result[i].bluescore) {
                   tie++;
                }
-               else if (result[i].redScore > result[i].blueScore) {
+               else if (result[i].redscore > result[i].bluescore) {
                   if (red) {
                      win++;
                   }
