@@ -123,9 +123,9 @@ client.on('message', message => {
                   }
                }
             }
-            let myAppend = "";
+            var myAppend = "";
             if (teams.length == 4) {
-               myAppend = " against " + teams[4].toUpperCase();
+               myAppend = " against " + teams[3].toUpperCase();
             }
             message.channel.send({
                embed: {
