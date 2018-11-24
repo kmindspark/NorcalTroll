@@ -87,8 +87,6 @@ client.on('message', message => {
       if (teams.length == 4) {
 
       }
-
-      let resp = httpGet()
    }
    else if (curMessageContent.includes('fitch predict')) {
       if (myRandom(6)) {
