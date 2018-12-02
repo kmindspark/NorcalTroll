@@ -224,6 +224,7 @@ client.on('message', message => {
 
          for (i = 0; i < result.length; i++) {
             var red = false;
+            var validComparison = false;
             if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                red = true;
             }
