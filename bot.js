@@ -217,50 +217,54 @@ client.on('message', message => {
          let win = 0;
          let tie = 0;
          let loss = 0;
-         if (teams.length > 3) {
-            for (i = 0; i < result.length; i++) {
-               var red = false;
-               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-                  red = true;
+         message.reply("Test");
+
+         for (i = 0; i < result.length; i++) {
+            var red = false;
+            if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+               red = true;
+            }
+            if (comparison) {
+               if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+                  || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+                  validComparison = true;
                }
-               if (comparison) {
-                  if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-                     || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
-                     validComparison = true;
-                  }
+            }
+            if (validComparison) {
+               if (result[i].redscore == result[i].bluescore) {
+                  tie++;
                }
-               if (validComparison) {
-                  if (result[i].redscore == result[i].bluescore) {
-                     tie++;
-                  }
-                  else if (result[i].redscore > result[i].bluescore) {
-                     if (red) {
-                        win++;
-                     }
-                     else {
-                        loss++;
-                     }
+               else if (result[i].redscore > result[i].bluescore) {
+                  if (red) {
+                     win++;
                   }
                   else {
-                     if (red) {
-                        loss++;
-                     }
-                     else {
-                        win++;
-                     }
+                     loss++;
+                  }
+               }
+               else {
+                  if (red) {
+                     loss++;
+                  }
+                  else {
+                     win++;
                   }
                }
             }
-            myAppend = " with " + teams[3].toUpperCase();
-            message.channel.send({
-               embed: {
-                  color: 1302784,
-                  title: "Record for " + teamOfInterest + myAppend,
-                  description: win + "-" + loss + "-" + tie
-               }
-            });
          }
+
+         message.reply("Test");
+
+         myAppend = " with " + teams[3].toUpperCase();
+         message.channel.send({
+            embed: {
+               color: 1302784,
+               title: "Record for " + teamOfInterest + myAppend,
+               description: win + "-" + loss + "-" + tie
+            }
+         });
       }
+
    }
    else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
