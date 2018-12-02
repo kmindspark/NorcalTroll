@@ -207,7 +207,7 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f arecord')) {
       message.reply("Test");
-      /*
+
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
          //bad case
@@ -221,6 +221,7 @@ client.on('message', message => {
          let loss = 0;
          message.reply("Test");
 
+         /*
          for (i = 0; i < result.length; i++) {
             var red = false;
             if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
@@ -253,10 +254,10 @@ client.on('message', message => {
                   }
                }
             }
-         }
+         }*/
 
          message.reply("Test");
-
+         /*
          myAppend = " with " + teams[3].toUpperCase();
          message.channel.send({
             embed: {
@@ -264,8 +265,8 @@ client.on('message', message => {
                title: "Record for " + teamOfInterest + myAppend,
                description: win + "-" + loss + "-" + tie
             }
-         });
-      }*/
+         });*/
+      }
 
    }
    else if (curMessageContent.includes('f predict')) {
