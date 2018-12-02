@@ -226,7 +226,7 @@ client.on('message', message => {
             }
 
             if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-               || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+               || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
                validComparison = true;
             }
 
