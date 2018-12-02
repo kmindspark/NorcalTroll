@@ -214,14 +214,14 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         //let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
-         /*let result = JSON.parse(resp).result;
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
-         let loss = 0;*/
+         let loss = 0;
          message.reply(teamOfInterest);
 
-         /*
+
          for (i = 0; i < result.length; i++) {
             var red = false;
             if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
@@ -254,7 +254,7 @@ client.on('message', message => {
                   }
                }
             }
-         }*/
+         }
 
          message.reply("Test");
          /*
