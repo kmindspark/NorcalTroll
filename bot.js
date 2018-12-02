@@ -219,7 +219,7 @@ client.on('message', message => {
          let win = 0;
          let tie = 0;
          let loss = 0;
-         message.reply("Test");
+         message.reply("Test2");
 
          /*
          for (i = 0; i < result.length; i++) {
