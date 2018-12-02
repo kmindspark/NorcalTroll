@@ -108,7 +108,9 @@ client.on('message', message => {
             color: 3447003,
             title: "So, you need Fitch's help!",
             description: "**f ping:** Fitch replies with *pong* \n **f predict <question>:** Fitch gives a prediction! \n \
-               ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n **f rank:** Fitch gives you a ranking of NorCal teams based on win percentages."
+               ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n \
+               ** f arecord <team> <alliance>:** Fitch tells you the W-L-T for the specified alliance \n \
+               ** f rank:** Fitch gives you a ranking of NorCal teams based on win percentages."
          }
       });
    }
@@ -193,6 +195,63 @@ client.on('message', message => {
             if (teams.length == 4) {
                myAppend = " against " + teams[3].toUpperCase();
             }
+            message.channel.send({
+               embed: {
+                  color: 1302784,
+                  title: "Record for " + teamOfInterest + myAppend,
+                  description: win + "-" + loss + "-" + tie
+               }
+            });
+         }
+      }
+   }
+   else if (curMessageContent.includes('f arecord')) {
+      let teams = curMessageContent.split(" ");
+      if (teams.length != 3 && teams.length != 4) {
+         //bad case
+      }
+      else {
+         let teamOfInterest = teams[2].toUpperCase();
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let result = JSON.parse(resp).result;
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
+         if (teams.length > 3) {
+            for (i = 0; i < result.length; i++) {
+               var red = false;
+               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+                  red = true;
+               }
+               if (comparison) {
+                  if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+                     || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+                     validComparison = true;
+                  }
+               }
+               if (validComparison) {
+                  if (result[i].redscore == result[i].bluescore) {
+                     tie++;
+                  }
+                  else if (result[i].redscore > result[i].bluescore) {
+                     if (red) {
+                        win++;
+                     }
+                     else {
+                        loss++;
+                     }
+                  }
+                  else {
+                     if (red) {
+                        loss++;
+                     }
+                     else {
+                        win++;
+                     }
+                  }
+               }
+            }
+            myAppend = " with " + teams[3].toUpperCase();
             message.channel.send({
                embed: {
                   color: 1302784,
