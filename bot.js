@@ -206,8 +206,6 @@ client.on('message', message => {
       }
    }
    else if (curMessageContent.includes('f arecord')) {
-      message.reply("Test");
-
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
          //bad case
@@ -219,8 +217,6 @@ client.on('message', message => {
          let win = 0;
          let tie = 0;
          let loss = 0;
-         message.reply(teamOfInterest);
-
 
          for (i = 0; i < result.length; i++) {
             var red = false;
@@ -257,8 +253,6 @@ client.on('message', message => {
             }
          }
 
-         message.reply("Test");
-         /*
          myAppend = " with " + teams[3].toUpperCase();
          message.channel.send({
             embed: {
@@ -266,7 +260,7 @@ client.on('message', message => {
                title: "Record for " + teamOfInterest + myAppend,
                description: win + "-" + loss + "-" + tie
             }
-         });*/
+         });
       }
 
    }
