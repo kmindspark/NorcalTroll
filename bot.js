@@ -227,12 +227,12 @@ client.on('message', message => {
             if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                red = true;
             }
-            if (comparison) {
-               if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-                  || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
-                  validComparison = true;
-               }
+
+            if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+               || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+               validComparison = true;
             }
+
             if (validComparison) {
                if (result[i].redscore == result[i].bluescore) {
                   tie++;
