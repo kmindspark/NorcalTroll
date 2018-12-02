@@ -207,7 +207,7 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f arecord')) {
       let teams = curMessageContent.split(" ");
-      if (teams.length != 3 && teams.length != 4) {
+      if (teams.length != 4) {
          //bad case
       }
       else {
@@ -224,8 +224,8 @@ client.on('message', message => {
                   red = true;
                }
                if (comparison) {
-                  if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
-                     || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+                  if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+                     || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
                      validComparison = true;
                   }
                }
