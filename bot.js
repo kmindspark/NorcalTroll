@@ -207,6 +207,7 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f arecord')) {
       message.reply("Test");
+      /*
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
          //bad case
@@ -264,7 +265,7 @@ client.on('message', message => {
                description: win + "-" + loss + "-" + tie
             }
          });
-      }
+      }*/
 
    }
    else if (curMessageContent.includes('f predict')) {
