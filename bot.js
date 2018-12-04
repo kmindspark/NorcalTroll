@@ -49,6 +49,24 @@ function getWinPercent(teamOfInterest, message) {
       return (win / (win + tie + loss));
    }
 }
+/*
+function getTeamsFromTourney(keyword) {
+   let resp = httpGet("https://api.vexdb.io/v1/get_events?program=VRC&season=Turning%20Point&country=United%20States&region=California");
+   let result = JSON.parse(resp).result;
+   let keywords = keyword.split(" ");
+
+   for (i = 0; i < result.length; i++) {
+      let curEventName = result[i].name;
+      let valid = true;
+      for (j = 2; j < keywords.length; j++) {
+         valid = valid & (curEventName.includes(keywords[j]));
+      }
+      if (valid){
+
+         break;
+      }
+   }
+}*/
 
 
 client.on('ready', () => {
@@ -118,7 +136,7 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent === 'f rank') {
-      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D'];
+      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D'];
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
