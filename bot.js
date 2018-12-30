@@ -161,6 +161,68 @@ client.on('message', message => {
          }
       });
    }
+   else if (curMessageContent.includes('f orgrecord')) {
+      let teams = curMessageContent.split(" ");
+      if (teams.length != 3 && teams.length != 4) {
+         //bad case
+      }
+      else {
+         let teamOfInterest = teams[2].toUpperCase();
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let result = JSON.parse(resp).result;
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
+         if (teams.length >= 3) {
+            for (i = 0; i < result.length; i++) {
+               let comparison = teams.length == 4;
+               let validComparison = !comparison;
+               var red = false;
+               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+                  red = true;
+               }
+               if (comparison) {
+                  if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+                     || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+                     validComparison = true;
+                  }
+               }
+               if (validComparison) {
+                  if (result[i].redscore == result[i].bluescore) {
+                     tie++;
+                  }
+                  else if (result[i].redscore > result[i].bluescore) {
+                     if (red) {
+                        win++;
+                     }
+                     else {
+                        loss++;
+                     }
+                  }
+                  else {
+                     if (red) {
+                        loss++;
+                     }
+                     else {
+                        win++;
+                     }
+                  }
+               }
+            }
+            var myAppend = "";
+            if (teams.length == 4) {
+               myAppend = " against " + teams[3].toUpperCase();
+            }
+            message.channel.send({
+               embed: {
+                  color: 1302784,
+                  title: "Record for " + teamOfInterest + myAppend,
+                  description: win + "-" + loss + "-" + tie
+               }
+            });
+         }
+      }
+   }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
@@ -308,26 +370,29 @@ client.on('message', message => {
    else if (curMessageContent.includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if (message.member.displayName.includes("5776T") && myRandom(10)) {
+   else if (message.member.displayName.includes("5776T") && myRandom(18)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV");
    }
    else if (message.member.displayName.includes("Andrew") && myRandom(20)) {
       message.channel.send("007 thrower");
    }
-   else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(15)) {
+   else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(25)) {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(35)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(45)) {
       message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>");
    }
-   else if (message.member.roles.find("name", "315") && myRandom(25)) {
+   else if (message.member.roles.find("name", "315") && myRandom(55)) {
       message.channel.send("315 throwers");
    }
-   else if (message.member.roles.find("name", "139") && myRandom(35)) {
+   else if (message.member.roles.find("name", "139") && myRandom(55)) {
       message.channel.send("139 is fake Gael Force");
    }
-   else if (message.member.roles.find("name", "5327") && myRandom(20)) {
+   else if (message.member.roles.find("name", "5327") && myRandom(30)) {
       message.channel.send("Notebook tryhards");
+   }
+   else if (message.member.roles.find("name", "7916") && myRandom(25)) {
+      message.channel.send("Ayy it's discount Gael Force");
    }
    else if (curMessageContent.includes("fitch")) {
       if (myRandom(5)) {
@@ -342,6 +407,10 @@ client.on('message', message => {
    }
    else if (myRandom(500)) {
       message.channel.send('Hello everyone!');
+   }
+   else if (myRandom(200)) {
+      message.channel.send('Should I rejoin VEX?');
+      setTimeout(function () { message.channel.send('made u look'); }, 1000);
    }
 });
 
