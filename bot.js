@@ -346,13 +346,13 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
-         message.reply("I would say yes <:ok_hand:>");
+         message.reply("I would say yes :ok_hand:");
       }
       else if (myRandom(4)) {
-         message.reply("As sure as 8k winning worlds! <:thinking:>");
+         message.reply("As sure as 8k winning worlds! :thinking:");
       }
       else if (myRandom(2)) {
-         message.reply("Nope not a chance <:x:>");
+         message.reply("Nope not a chance :x:");
       }
       else {
          message.reply("Idk ask again");
@@ -380,7 +380,7 @@ client.on('message', message => {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
    else if (message.member.displayName.includes("Kau") && myRandom(45)) {
-      message.channel.send("Kau Kau! Mooooo! <:cow:>");
+      message.channel.send("Kau Kau! Mooooo! :cow:");
    }
    else if (message.member.roles.find("name", "315") && myRandom(55)) {
       message.channel.send("315 throwers");
