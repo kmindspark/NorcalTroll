@@ -346,13 +346,13 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
-         message.reply("I would say yes <:lewieok:494721325466910720>");
+         message.reply("I would say yes <:ok_hand:>");
       }
       else if (myRandom(4)) {
-         message.reply("As sure as 8k winning worlds! <:lewishappy:494723494727122950>");
+         message.reply("As sure as 8k winning worlds! <:thinking:>");
       }
       else if (myRandom(2)) {
-         message.reply("Nope not a chance <:sleep:494723089180000266>");
+         message.reply("Nope not a chance <:x:>");
       }
       else {
          message.reply("Idk ask again");
@@ -380,7 +380,7 @@ client.on('message', message => {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
    else if (message.member.displayName.includes("Kau") && myRandom(45)) {
-      message.channel.send("Kau Kau! Mooooo! <:MOOOOOO:494724750338162688>");
+      message.channel.send("Kau Kau! Mooooo! <:cow:>");
    }
    else if (message.member.roles.find("name", "315") && myRandom(55)) {
       message.channel.send("315 throwers");
@@ -416,4 +416,3 @@ client.on('message', message => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
-
