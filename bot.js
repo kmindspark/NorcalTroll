@@ -97,11 +97,11 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.trim().toLowerCase();
    let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '');
    if (curMessageContentPeriod.endsWith(".")) {
-      newMessage.delete(1000);
+      newMessage.delete(2000);
    }
    if (newMessage.member.displayName.includes("Ayush")) {
       if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
-         newMessage.delete(1000);
+         newMessage.delete(2000);
       }
    }
 });
@@ -113,11 +113,11 @@ client.on('message', message => {
       message.reply('stop with the mentions');
    }
    if (curMessageContentPeriod.endsWith(".")) {
-      message.delete(1000);
+      message.delete(2000);
    }
    if (message.member.displayName.includes("Ayush")) {
       if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
-         message.delete(1000);
+         message.delete(2000);
       }
    }
    if (curMessageContent === "fitch help" || curMessageContent === "f help") {
@@ -355,7 +355,7 @@ client.on('message', message => {
          message.reply("Nope not a chance :x:");
       }
       else {
-         message.reply("Idk ask again");
+         message.reply("Idk ask again :confused:");
       }
    }
    else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
@@ -365,7 +365,7 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes("leek")) {
       message.channel.send('fingerslip?');
-      setTimeout(function () { message.channel.send('made u look'); }, 1000);
+      setTimeout(function () { message.channel.send('made u look'); }, 2000);
    }
    else if (curMessageContent.includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
@@ -386,7 +386,7 @@ client.on('message', message => {
       message.channel.send("315 throwers");
    }
    else if (message.member.roles.find("name", "139") && myRandom(55)) {
-      message.channel.send("139 is fake Gael Force");
+      message.channel.send("139 is fake Gael Force :rofl:");
    }
    else if (message.member.roles.find("name", "5327") && myRandom(30)) {
       message.channel.send("Notebook tryhards");
@@ -406,11 +406,11 @@ client.on('message', message => {
       }
    }
    else if (myRandom(500)) {
-      message.channel.send('Hello everyone!');
+      message.channel.send('Hello everyone! :wave:');
    }
    else if (myRandom(200)) {
-      message.channel.send('Should I rejoin VEX?');
-      setTimeout(function () { message.channel.send('made u look'); }, 1000);
+      message.channel.send('Should I rejoin VEX? :thinking:');
+      setTimeout(function () { message.channel.send('made u look'); }, 2000);
    }
 });
 
