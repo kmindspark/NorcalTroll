@@ -99,11 +99,11 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(2000);
    }
-   if (newMessage.member.displayName.includes("Ayush")) {
+   /*if (newMessage.member.displayName.includes("Ayush")) {
       if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
          newMessage.delete(2000);
       }
-   }
+   }*/
 });
 
 client.on('message', message => {
@@ -115,11 +115,11 @@ client.on('message', message => {
    if (curMessageContentPeriod.endsWith(".")) {
       message.delete(2000);
    }
-   if (message.member.displayName.includes("Ayush")) {
+   /*if (message.member.displayName.includes("Ayush")) {
       if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
          message.delete(2000);
       }
-   }
+   }*/
    if (curMessageContent === "fitch help" || curMessageContent === "f help") {
       message.channel.send({
          embed: {
