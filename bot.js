@@ -136,7 +136,7 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent === 'f rank') {
-      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D'];
+      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F'];
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
@@ -370,7 +370,7 @@ client.on('message', message => {
    else if (curMessageContent.includes("vex is bad")) {
       message.channel.send('that\'s why I quit');
    }
-   else if (message.member.displayName.includes("5776T") && myRandom(18)) {
+   else if (message.member.displayName.includes("5776T") && myRandom(36)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV");
    }
    else if (message.member.displayName.includes("Andrew") && myRandom(20)) {
@@ -379,19 +379,19 @@ client.on('message', message => {
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(25)) {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(45)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(100)) {
       message.channel.send("Kau Kau! Mooooo! :cow:");
    }
-   else if (message.member.roles.find("name", "315") && myRandom(55)) {
+   else if (message.member.roles.find("name", "315") && myRandom(110)) {
       message.channel.send("315 throwers");
    }
-   else if (message.member.roles.find("name", "139") && myRandom(55)) {
+   else if (message.member.roles.find("name", "139") && myRandom(110)) {
       message.channel.send("139 is fake Gael Force :rofl:");
    }
-   else if (message.member.roles.find("name", "5327") && myRandom(30)) {
+   else if (message.member.roles.find("name", "5327") && myRandom(60)) {
       message.channel.send("Notebook tryhards");
    }
-   else if (message.member.roles.find("name", "7916") && myRandom(25)) {
+   else if (message.member.roles.find("name", "7916") && myRandom(50)) {
       message.channel.send("Ayy it's discount Gael Force");
    }
    else if (curMessageContent.includes("fitch")) {
@@ -408,7 +408,7 @@ client.on('message', message => {
    else if (myRandom(500)) {
       message.channel.send('Hello everyone! :wave:');
    }
-   else if (myRandom(200)) {
+   else if (myRandom(250)) {
       message.channel.send('Should I rejoin VEX? :thinking:');
       setTimeout(function () { message.channel.send('made u look'); }, 2000);
    }
