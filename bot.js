@@ -405,10 +405,10 @@ client.on('message', message => {
          message.channel.send("8k was good while I was part of it");
       }
    }
-   else if (myRandom(500)) {
+   else if (myRandom(1000)) {
       message.channel.send('Hello everyone! :wave:');
    }
-   else if (myRandom(250)) {
+   else if (myRandom(1050)) {
       message.channel.send('Should I rejoin VEX? :thinking:');
       setTimeout(function () { message.channel.send('made u look'); }, 2000);
    }
