@@ -358,7 +358,7 @@ client.on('message', message => {
          message.reply("Idk ask again :confused:");
       }
    }
-   else if (curMessageContent.includes('win') && curMessageContent.includes('worlds')) {
+   else if (curMessageContent.includes('win') && curMessageContent.includes('worlds') && myRandom(5)) {
       if (message.author.id !== client.user.id) {
          message.channel.send('8k IS WINNING WORLDS!');
       }
