@@ -405,6 +405,12 @@ client.on('message', message => {
          message.channel.send("8k was good while I was part of it");
       }
    }
+   else if (curMessageContent.includes("lewie") && myRandom(10)) {
+      message.channel.send("Hey, that name sounds familiar!")
+   }
+   else if (curMessageContent == "f") {
+      message.channel.send("F")
+   }
    else if (myRandom(1000)) {
       message.channel.send('Hello everyone! :wave:');
    }
