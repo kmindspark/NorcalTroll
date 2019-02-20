@@ -95,7 +95,7 @@ function myRandom(odds) {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.trim().toLowerCase();
-   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '').replace(/|/g, '');
+   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '').replace(/\|/g, '');
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(2000);
    }
@@ -108,7 +108,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on('message', message => {
    let curMessageContent = message.content.trim().toLowerCase();
-   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '').replace(/|/g, '');
+   let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '').replace(/\|/g, '');
    if (message.isMentioned(client.user) && myRandom(5)) {
       message.reply('stop with the mentions');
    }
