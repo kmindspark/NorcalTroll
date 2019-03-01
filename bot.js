@@ -366,7 +366,6 @@ client.on('message', message => {
             let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
 
-
             for (i = 0; i < result.length; i++) {
                var red = false;
                var validComparison = false;
