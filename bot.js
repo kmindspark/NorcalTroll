@@ -348,73 +348,74 @@ client.on('message', message => {
       message.reply("reached");
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
-         message.reply("reached 0");
-      }/*
-      var teamList = [];
-      if (teams[2] === "315") {
-         teamList = ["315A", "315Y", "315G", "315J", "315X", "315R", "315Z"];
-      }
-      else if (teams[2] === "5776") {
-         teamList = ["5776A", "5776B", "5776C", "5776D", "5776E", "5776F", "5776W", "5776T", "5776X", "5776Z"];
-      }
-      else if (teams[2] === "5237") {
-         teamList = ["5237A", "5237B", "5237C", "5237D", "5237X", "5237S"];
-      }
+         var teamList = [];
+         if (teams[2] === "315") {
+            teamList = ["315A", "315Y", "315G", "315J", "315X", "315R", "315Z"];
+         }
+         else if (teams[2] === "5776") {
+            teamList = ["5776A", "5776B", "5776C", "5776D", "5776E", "5776F", "5776W", "5776T", "5776X", "5776Z"];
+         }
+         else if (teams[2] === "5237") {
+            teamList = ["5237A", "5237B", "5237C", "5237D", "5237X", "5237S"];
+         }
 
-      let win = 0;
-      let tie = 0;
-      let loss = 0;
+         message.reply("reached 2")
 
-      for (r = 0; r < teamList.length; r++) {
-         let teamOfInterest = teamsList[r].toUpperCase();
-         message.reply("reached 1");
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
-         let result = JSON.parse(resp).result;
+         /*
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
 
-         for (i = 0; i < result.length; i++) {
-            var red = false;
-            var validComparison = false;
-            if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-               red = true;
-            }
+         for (r = 0; r < teamList.length; r++) {
+            let teamOfInterest = teamsList[r].toUpperCase();
+            message.reply("reached 1");
+            let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+            let result = JSON.parse(resp).result;
 
-            if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-               || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
-               validComparison = true;
-            }
-
-            if (validComparison) {
-               if (result[i].redscore == result[i].bluescore) {
-                  tie++;
+            for (i = 0; i < result.length; i++) {
+               var red = false;
+               var validComparison = false;
+               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+                  red = true;
                }
-               else if (result[i].redscore > result[i].bluescore) {
-                  if (red) {
-                     win++;
+
+               if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+                  || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+                  validComparison = true;
+               }
+
+               if (validComparison) {
+                  if (result[i].redscore == result[i].bluescore) {
+                     tie++;
+                  }
+                  else if (result[i].redscore > result[i].bluescore) {
+                     if (red) {
+                        win++;
+                     }
+                     else {
+                        loss++;
+                     }
                   }
                   else {
-                     loss++;
-                  }
-               }
-               else {
-                  if (red) {
-                     loss++;
-                  }
-                  else {
-                     win++;
+                     if (red) {
+                        loss++;
+                     }
+                     else {
+                        win++;
+                     }
                   }
                }
             }
          }
-      }
 
-      message.channel.send({
-         embed: {
-            color: 1302784,
-            title: "Record for " + teams[2],
-            description: win + "-" + loss + "-" + tie
-         }
-      });
-   }*/
+         message.channel.send({
+            embed: {
+               color: 1302784,
+               title: "Record for " + teams[2],
+               description: win + "-" + loss + "-" + tie
+            }
+         });*/
+      }
    }
    else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
