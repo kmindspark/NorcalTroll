@@ -357,6 +357,9 @@ client.on('message', message => {
          else if (teams[2] === "5327") {
             teamList = ["5327A", "5327B", "5327C", "5327D", "5327X", "5327S"];
          }
+         else if (teams[2] === "8000") {
+            teamList = ["8000A", "8000B", "8000C", "8000D", "8000E", "8000F", "8000X", "8000Z"];
+         }
          else {
             teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "I", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "O", teams[2] + "P", teams[2] + "Q", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
          }
