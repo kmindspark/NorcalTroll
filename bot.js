@@ -128,6 +128,7 @@ client.on('message', message => {
             description: "**f ping:** Fitch replies with *pong* \n **f predict <question>:** Fitch gives a prediction! \n \
                ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n \
                ** f arecord <team> <alliance>:** Fitch tells you the W-L-T for the specified alliance \n \
+               ** f orecord <team>:** Fitch gives you a record for the whole organization (only Norcal). \n \
                ** f rank:** Fitch gives you a ranking of NorCal teams based on win percentages."
          }
       });
