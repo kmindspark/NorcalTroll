@@ -345,7 +345,6 @@ client.on('message', message => {
       }
    }
    else if (curMessageContent.includes('f orecord')) {
-      message.reply("reached");
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
          var teamList = [];
@@ -358,8 +357,6 @@ client.on('message', message => {
          else if (teams[2] === "5237") {
             teamList = ["5237A", "5237B", "5237C", "5237D", "5237X", "5237S"];
          }
-
-         message.reply("reached 2")
 
          let win = 0;
          let tie = 0;
