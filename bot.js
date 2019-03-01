@@ -366,8 +366,8 @@ client.on('message', message => {
          let loss = 0;
 
          for (r = 0; r < teamList.length; r++) {
-            let teamOfInterest = teamsList[r].toUpperCase();
-            /*
+            /*let teamOfInterest = teamsList[r].toUpperCase();
+            
             message.reply("reached 1");
             let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
