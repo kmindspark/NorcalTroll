@@ -347,6 +347,7 @@ client.on('message', message => {
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
+         message.reply("reached 0");
          var teamList = [];
          if (teams[2] === "315") {
             teamList = ["315A", "315Y", "315G", "315J", "315X", "315R", "315Z"];
@@ -364,7 +365,7 @@ client.on('message', message => {
 
          for (r = 0; r < teamList.length; r++) {
             let teamOfInterest = teamsList[r].toUpperCase();
-            message.reply("reached 1")
+            message.reply("reached 1");
             let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
 
