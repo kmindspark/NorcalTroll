@@ -354,7 +354,7 @@ client.on('message', message => {
          else if (teams[2] === "5776") {
             teamList = ["5776A", "5776B", "5776C", "5776D", "5776E", "5776F", "5776W", "5776T", "5776X", "5776Z"];
          }
-         else if (teams[2] === "5237") {
+         else if (teams[2] === "5327") {
             teamList = ["5237A", "5237B", "5237C", "5237D", "5237X", "5237S"];
          }
 
