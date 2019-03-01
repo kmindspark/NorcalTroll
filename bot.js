@@ -402,7 +402,6 @@ client.on('message', message => {
             }
          }
 
-         myAppend = " with " + teams[3].toUpperCase();
          message.channel.send({
             embed: {
                color: 1302784,
