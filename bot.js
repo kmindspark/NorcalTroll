@@ -405,7 +405,7 @@ client.on('message', message => {
          message.channel.send({
             embed: {
                color: 1302784,
-               title: "Record for " + teams[2] + myAppend,
+               title: "Record for " + teams[2],
                description: win + "-" + loss + "-" + tie
             }
          });
