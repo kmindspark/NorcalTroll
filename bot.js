@@ -375,27 +375,26 @@ client.on('message', message => {
                   red = true;
                }
 
-               if (validComparison) {
-                  if (result[i].redscore == result[i].bluescore) {
-                     tie++;
-                  }
-                  else if (result[i].redscore > result[i].bluescore) {
-                     if (red) {
-                        win++;
-                     }
-                     else {
-                        loss++;
-                     }
+               if (result[i].redscore == result[i].bluescore) {
+                  tie++;
+               }
+               else if (result[i].redscore > result[i].bluescore) {
+                  if (red) {
+                     win++;
                   }
                   else {
-                     if (red) {
-                        loss++;
-                     }
-                     else {
-                        win++;
-                     }
+                     loss++;
                   }
                }
+               else {
+                  if (red) {
+                     loss++;
+                  }
+                  else {
+                     win++;
+                  }
+               }
+
             }
          }
 
