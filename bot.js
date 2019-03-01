@@ -345,6 +345,7 @@ client.on('message', message => {
       }
    }
    else if (curMessageContent.includes('f orecord')) {
+      message.reply("reached");/*
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
          message.reply("reached 0");
@@ -412,7 +413,7 @@ client.on('message', message => {
                description: win + "-" + loss + "-" + tie
             }
          });
-      }
+      }*/
    }
    else if (curMessageContent.includes('f predict')) {
       if (myRandom(6)) {
