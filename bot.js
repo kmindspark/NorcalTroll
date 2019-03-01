@@ -366,22 +366,16 @@ client.on('message', message => {
          let loss = 0;
 
          for (r = 0; r < teamList.length; r++) {
-            message.reply("another")
-            /*let teamOfInterest = teamsList[r].toUpperCase();
+            let teamOfInterest = teamsList[r].toUpperCase();
             message.reply("reached 1");
             let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
 
             for (i = 0; i < result.length; i++) {
                var red = false;
-               var validComparison = false;
+
                if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                   red = true;
-               }
-
-               if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-                  || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
-                  validComparison = true;
                }
 
                if (validComparison) {
@@ -405,7 +399,7 @@ client.on('message', message => {
                      }
                   }
                }
-            }*/
+            }
          }
 
          message.channel.send({
