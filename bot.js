@@ -442,10 +442,10 @@ client.on('message', message => {
    else if (message.member.displayName.includes("5776T") && myRandom(36)) {
       message.channel.send("Yo DVT why didn't u get excellence at DV");
    }
-   else if (message.member.displayName.includes("Andrew") && myRandom(20)) {
+   else if (message.member.displayName.includes("Andrew") && myRandom(35)) {
       message.channel.send("007 thrower");
    }
-   else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(25)) {
+   else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(50)) {
       message.channel.send("yo 315x shoulda picked Lewie at worlds");
    }
    else if (message.member.displayName.includes("Kau") && myRandom(100)) {
@@ -463,24 +463,24 @@ client.on('message', message => {
    else if (message.member.roles.find("name", "7916") && myRandom(50)) {
       message.channel.send("Ayy it's discount Gael Force");
    }
-   else if (message.member.roles.find("name", "86868R") && myRandom(15)) {
+   else if (message.member.roles.find("name", "86868R") && myRandom(10)) {
       message.channel.send("We get it Dylon you won worlds just like 8k");
    }
-   else if (message.member.roles.find("name", "22095") && myRandom(15)) {
+   else if (message.member.roles.find("name", "22095") && myRandom(50)) {
       message.channel.send("Look it's steel boi");
    }
    else if (curMessageContent.includes("fitch")) {
-      if (myRandom(5)) {
+      if (myRandom(15)) {
          message.channel.send("Someone said my name?");
       }
-      else if (myRandom(5)) {
+      else if (myRandom(15)) {
          message.channel.send("I'm better than Lewie");
       }
-      else if (myRandom(5)) {
+      else if (myRandom(15)) {
          message.channel.send("8k was good while I was part of it");
       }
    }
-   else if (curMessageContent.includes("lewie") && myRandom(10)) {
+   else if (curMessageContent.includes("lewie") && myRandom(20)) {
       message.channel.send("Hey, that name sounds familiar!")
    }
    else if (curMessageContent === "f") {
