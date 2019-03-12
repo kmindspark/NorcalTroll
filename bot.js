@@ -488,7 +488,7 @@ client.on('message', message => {
          message.channel.send("F")
       }
    }
-   else if (curMessageContent === "lol") {
+   else if (curMessageContent === "lol" && myRandom(20)) {
       if (message.author.id !== client.user.id) {
          message.channel.send(":0")
       }
