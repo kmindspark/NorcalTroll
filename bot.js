@@ -73,11 +73,11 @@ client.on('ready', () => {
    console.log('I am ready!');
    var channelID = '515786957125844996';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
-   new CronJob('00 00 21 * * *', function () {
+   /*new CronJob('00 00 21 * * *', function () {
       if (myRandom(10)) {
          client.channels.get(channelID).send('<@&515788603666989057> Bedtime!')
       }
-   }, null, true, 'America/Los_Angeles');
+   }, null, true, 'America/Los_Angeles');*/
    new CronJob('00 00 9 * * *', function () {
       if (myRandom(10)) {
          client.channels.get(channelID).send('Good morning everyone!')
