@@ -12,7 +12,7 @@ function httpGet(theUrl) {
 }
 
 function getWinPercent(teamOfInterest, message) {
-   let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+   let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
    let result = JSON.parse(resp).result;
    let win = 0.0;
    let tie = 0.0;
@@ -51,7 +51,7 @@ function getWinPercent(teamOfInterest, message) {
 }
 /*
 function getTeamsFromTourney(keyword) {
-   let resp = httpGet("https://api.vexdb.io/v1/get_events?program=VRC&season=Turning%20Point&country=United%20States&region=California");
+   let resp = httpGet("https://api.vexdb.io/v1/get_events?program=VRC&season=Tower%20Takeover&country=United%20States&region=California");
    let result = JSON.parse(resp).result;
    let keywords = keyword.split(" ");
 
@@ -74,15 +74,17 @@ client.on('ready', () => {
    var channelID = '515786957125844996';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
    new CronJob('00 00 21 * * *', function () {
-      client.channels.get(channelID).send('<@&515788603666989057> Bedtime!')
+      if (myRandom(10)) {
+         client.channels.get(channelID).send('<@&515788603666989057> Bedtime!')
+      }
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 9 * * *', function () {
-      if (myRandom(3)) {
+      if (myRandom(10)) {
          client.channels.get(channelID).send('Good morning everyone!')
       }
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 22 * * *', function () {
-      if (myRandom(3)) {
+      if (myRandom(10)) {
          client.channels.get(channelID).send('Good night everyone!')
       }
    }, null, true, 'America/Los_Angeles');
@@ -99,11 +101,6 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    if (curMessageContentPeriod.endsWith(".")) {
       newMessage.delete(2000);
    }
-   /*if (newMessage.member.displayName.includes("Ayush")) {
-      if (newMessage.content.includes('?') || newMessage.content.includes('.') || newMessage.content.includes('!') || newMessage.content.includes(',')) {
-         newMessage.delete(2000);
-      }
-   }*/
 });
 
 client.on('message', message => {
@@ -115,11 +112,6 @@ client.on('message', message => {
    if (curMessageContentPeriod.endsWith(".")) {
       message.delete(2000);
    }
-   /*if (message.member.displayName.includes("Ayush")) {
-      if (message.content.includes('?') || message.content.includes('.') || message.content.includes('!') || message.content.includes(',')) {
-         message.delete(2000);
-      }
-   }*/
    if (curMessageContent === "fitch help" || curMessageContent === "f help") {
       message.channel.send({
          embed: {
@@ -169,7 +161,7 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
@@ -231,7 +223,7 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
@@ -293,7 +285,7 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
@@ -348,7 +340,7 @@ client.on('message', message => {
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
          var teamList = [];
-         if (teams[2] === "315") {
+         /*if (teams[2] === "315") {
             teamList = ["315A", "315Y", "315G", "315J", "315X", "315R", "315Z"];
          }
          else if (teams[2] === "5776") {
@@ -359,10 +351,10 @@ client.on('message', message => {
          }
          else if (teams[2] === "8000") {
             teamList = ["8000A", "8000B", "8000C", "8000D", "8000E", "8000F", "8000X", "8000Z"];
-         }
-         else {
-            teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "I", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "O", teams[2] + "P", teams[2] + "Q", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
-         }
+         }*/
+         //else {
+         teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "I", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "O", teams[2] + "P", teams[2] + "Q", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
+         //}
 
          let win = 0;
          let tie = 0;
@@ -371,7 +363,7 @@ client.on('message', message => {
          for (r = 0; r < teamList.length; r++) {
             let teamOfInterest = teamList[r].toUpperCase();
 
-            let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Turning%20Point&team=" + teamOfInterest);
+            let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
 
             for (i = 0; i < result.length; i++) {
