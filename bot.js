@@ -476,7 +476,7 @@ client.on('message', message => {
    else if (curMessageContent.includes("lewie") && myRandom(20)) {
       message.channel.send("Hey, that name sounds familiar!")
    }
-   else if (curMessageContent === "f") {
+   else if (curMessageContent === "f" && myRandom(10)) {
       if (message.author.id !== client.user.id) {
          message.channel.send("F")
       }
