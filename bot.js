@@ -7,10 +7,10 @@ let cumulativeNames = ""
 
 function addNicknameIfValid(key) {
    message.reply(key.displayName)
-   let nickname = key.displayName;
+   /*let nickname = key.displayName;
    if (nickname.includes(teams[2].toUpperCase())) {
       cumulativeNames += nickname + "\n"
-   }
+   }*/
 }
 
 function httpGet(theUrl) {
