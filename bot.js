@@ -183,7 +183,7 @@ client.on('message', message => {
          message.channel.send({
             embed: {
                color: 16711782,
-               title: "Members of " + teams[2].toUpperCase() + "(" + memberCount + ")",
+               title: "Members of " + teams[2].toUpperCase() + " (" + memberCount + ")",
                description: cumulativeNames
             }
          });
