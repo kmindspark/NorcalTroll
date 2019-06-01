@@ -10,6 +10,7 @@ let curSeason = "Turning%20Point"
 
 await client.change_presence(game = discord.Game(name = 'f help'))
 
+
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
    if (nickname.includes(curTeam.toUpperCase())) {
