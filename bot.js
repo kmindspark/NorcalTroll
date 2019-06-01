@@ -155,6 +155,27 @@ client.on('message', message => {
          }
       });
    }
+   else if (curMessageContent.includes('f members')) {
+      var server = message.guild;
+      let members = server.members;
+      let teams = curMessageContent.split(" ");
+      let cumulative = ""
+      for (var key in members) {
+         let nickname = members.displayName;
+         if (nickname.includes(teams[2].toUpperCase())) {
+            cumulative += nickname + "\n"
+         }
+      }
+      cumulative.substr(0, cumulative.length - 1);
+
+      message.channel.send({
+         embed: {
+            color: 16711782,
+            title: "Members of " + teams[2].toUpperCase(),
+            description: cumulative
+         }
+      });
+   }
    else if (curMessageContent === 'f rank') {
       // TURNING POINT: var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
       var teamsToRank = ['315A', '315T', '315R', '315S', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '7916A', '1350X'];
@@ -182,7 +203,7 @@ client.on('message', message => {
          }
       });
    }
-   else if (curMessageContent.includes('f orgrecord')) {
+   else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          //bad case
@@ -244,7 +265,7 @@ client.on('message', message => {
          }
       }
    }
-   else if (curMessageContent.includes('f record')) {
+   /*else if (curMessageContent.includes('f orgrecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          //bad case
@@ -305,7 +326,7 @@ client.on('message', message => {
             });
          }
       }
-   }
+   }*/
    else if (curMessageContent.includes('f arecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
@@ -368,21 +389,7 @@ client.on('message', message => {
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
          var teamList = [];
-         /*if (teams[2] === "315") {
-            teamList = ["315A", "315Y", "315G", "315J", "315X", "315R", "315Z"];
-         }
-         else if (teams[2] === "5776") {
-            teamList = ["5776A", "5776B", "5776C", "5776D", "5776E", "5776F", "5776W", "5776T", "5776X", "5776Z"];
-         }
-         else if (teams[2] === "5327") {
-            teamList = ["5327A", "5327B", "5327C", "5327D", "5327X", "5327S"];
-         }
-         else if (teams[2] === "8000") {
-            teamList = ["8000A", "8000B", "8000C", "8000D", "8000E", "8000F", "8000X", "8000Z"];
-         }*/
-         //else {
          teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "I", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "O", teams[2] + "P", teams[2] + "Q", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
-         //}
 
          let win = 0;
          let tie = 0;
