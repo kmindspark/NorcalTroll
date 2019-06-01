@@ -161,6 +161,7 @@ client.on('message', message => {
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
          message.reply(size);
+         message.reply(typeof (guild.members))
          let teams = curMessageContent.split(" ");
          let cumulative = ""
          for (var key in guild.members) {
