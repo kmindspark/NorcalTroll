@@ -339,7 +339,41 @@ client.on('message', message => {
       }
    }
    else if (curMessageContent.includes('f matches')) {
+      let teams = curMessageContent.split(" ");
+      if (teams.length != 4) {
+         //bad case
+      }
+      let teamOfInterest = teams[2].toUpperCase();
+      let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
+      let result = JSON.parse(resp).result;
+      let win = 0;
+      let tie = 0;
+      let loss = 0;
 
+      let totalMatches = "";
+
+      for (i = 0; i < result.length; i++) {
+         let validComparison = false;
+         var red = false;
+         if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+            red = true;
+         }
+         if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+            || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+            validComparison = true;
+         }
+         if (validComparison) {
+            totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+         }
+      }
+
+      message.channel.send({
+         embed: {
+            color: 1302784,
+            title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
+            description: totalMatches
+         }
+      });
    }
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
