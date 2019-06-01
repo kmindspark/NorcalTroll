@@ -157,7 +157,7 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f members')) {
       var server = message.guild;
-      let members = server.members;
+      let members = server.fetchMembers();
       var size = Object.keys(members).length;
       message.reply(size);
       let teams = curMessageContent.split(" ");
