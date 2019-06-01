@@ -139,7 +139,7 @@ client.on('message', message => {
          }
          let eventName = result[i].name;
          let eventDate = result[i].start;
-         eventDate = eventDate.substr(0, eventDate.indexOf(','));
+         eventDate = eventDate.substr(0, eventDate.indexOf('T'));
          cumulative += eventName + ", " + eventDate;
       }
 
