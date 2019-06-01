@@ -425,7 +425,7 @@ client.on('message', message => {
       message.channel.send({
          embed: {
             color: 1302784,
-            title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
+            title: "Matches played by alliance " + teamOfInterest + " and " + teams[3].toUpperCase(),
             description: totalMatches
          }
       });
