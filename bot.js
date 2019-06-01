@@ -166,11 +166,12 @@ client.on('message', message => {
    else if (curMessageContent.includes('f members')) {
       let server = message.guild;
       server.fetchMembers().then((guild) => {
-         message.reply("Hello")
          let size = guild.members.size;
+         message.reply(size);
          let teams = curMessageContent.split(" ");
 
          guild.members.map((key) => addNicknameIfValid(key));
+         message.reply(cumulativeNames);
          cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
 
          message.channel.send({
