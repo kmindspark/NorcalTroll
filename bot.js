@@ -4,13 +4,13 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const client = new Discord.Client();
 let cumulativeNames = ""
+let curTeam = ""
 
 function addNicknameIfValid(key) {
-   cumulativeNames += key.displayName;
-   /*let nickname = key.displayName;
-   if (nickname.includes(teams[2].toUpperCase())) {
+   let nickname = key.displayName;
+   if (nickname.includes(curTeam.toUpperCase())) {
       cumulativeNames += nickname + "\n"
-   }*/
+   }
 }
 
 function httpGet(theUrl) {
@@ -166,10 +166,13 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f members')) {
       let server = message.guild;
+      curTeam = ""
+      cumulativeNames = ""
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
          message.reply(size);
          let teams = curMessageContent.split(" ");
+         curTeam = teams[2];
 
          guild.members.map((key) => addNicknameIfValid(key));//
 
