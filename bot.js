@@ -117,7 +117,7 @@ client.on('message', message => {
          embed: {
             color: 3447003,
             title: "So, you need Fitch's help!",
-            description: "**f ping:** Fitch replies with *pong* \n **f predict <question>:** Fitch gives a prediction! \n \
+            description: "**f ping:** Fitch replies with *pong*. \n **f predict <question>:** Fitch gives a prediction! \n \
                ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n \
                ** f arecord <team> <alliance>:** Fitch tells you the W-L-T for the specified alliance. \n \
                ** f orecord <team>:** Fitch gives you a record for the whole organization. \n \
@@ -141,6 +141,9 @@ client.on('message', message => {
          let eventName = result[i].name;
          let eventDate = result[i].start;
          eventDate = eventDate.substr(0, eventDate.indexOf('T'));
+         eventYear = eventDate.substr(0, eventDate.indexOf("-") + 1);
+         eventDate = eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear;
+
          cumulative += eventName + ", " + eventDate;
       }
 
