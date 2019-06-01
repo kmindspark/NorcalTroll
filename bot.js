@@ -168,16 +168,15 @@ client.on('message', message => {
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
          let teams = curMessageContent.split(" ");
-         let cumulative = ""
 
          guild.members.map((key) => addNicknameIfValid(key));
-         cumulative = cumulative.substr(0, cumulative.length - 1);
+         cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
 
          message.channel.send({
             embed: {
                color: 16711782,
                title: "Members of " + teams[2].toUpperCase(),
-               description: cumulative
+               description: cumulativeNames
             }
          });
       })
