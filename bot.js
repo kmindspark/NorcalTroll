@@ -363,7 +363,7 @@ client.on('message', message => {
             validComparison = true;
          }
          if (validComparison) {
-            totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
          }
       }
 
