@@ -83,7 +83,7 @@ function getTeamsFromTourney(keyword) {
 
 client.on('ready', () => {
    console.log('I am ready!');
-   client.user.setActivity("f help");
+   client.user.setPresence({ game: { name: 'f help' } });
    var channelID = '515786957125844996';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
    /*new CronJob('00 00 21 * * *', function () {
