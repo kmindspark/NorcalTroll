@@ -165,6 +165,7 @@ client.on('message', message => {
          let cumulative = ""
          for (var key in guild.members) {
             let nickname = guild.members[key].displayName;
+            message.reply(nickname)
             if (nickname.includes(teams[2].toUpperCase())) {
                cumulative += nickname + "\n"
             }
