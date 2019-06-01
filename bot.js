@@ -156,27 +156,28 @@ client.on('message', message => {
       });
    }
    else if (curMessageContent.includes('f members')) {
-      var server = message.guild;
-      let members = server.fetchMembers();
-      var size = Object.keys(members).length;
-      message.reply(size);
-      let teams = curMessageContent.split(" ");
-      let cumulative = ""
-      for (var key in members) {
-         let nickname = members[key].displayName;
-         if (nickname.includes(teams[2].toUpperCase())) {
-            cumulative += nickname + "\n"
+      let server = message.guild;
+      server.fetchMembers().then((guild) => {
+         let size = guild.members.length;
+         message.reply(size);
+         let teams = curMessageContent.split(" ");
+         let cumulative = ""
+         for (var key in guild.members) {
+            let nickname = guild.members[key].displayName;
+            if (nickname.includes(teams[2].toUpperCase())) {
+               cumulative += nickname + "\n"
+            }
          }
-      }
-      cumulative.substr(0, cumulative.length - 1);
+         cumulative.substr(0, cumulative.length - 1);
 
-      message.channel.send({
-         embed: {
-            color: 16711782,
-            title: "Members of " + teams[2].toUpperCase(),
-            description: cumulative
-         }
-      });
+         message.channel.send({
+            embed: {
+               color: 16711782,
+               title: "Members of " + teams[2].toUpperCase(),
+               description: cumulative
+            }
+         });
+      })
    }
    else if (curMessageContent === 'f rank') {
       // TURNING POINT: var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
