@@ -166,7 +166,7 @@ client.on('message', message => {
          let teams = curMessageContent.split(" ");
          let cumulative = ""
 
-         guild.members.map((item) => message.reply("item iterated"))
+         guild.members.map((item) => message.reply(item.displayName))
          /*
          for (var key in guild.members) {
             message.reply(typeof (key))
