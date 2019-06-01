@@ -8,8 +8,6 @@ let curTeam = ""
 let memberCount = 0
 let curSeason = "Turning%20Point"
 
-client.user.setActivity("f help");
-
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
    if (nickname.includes(curTeam.toUpperCase())) {
@@ -85,6 +83,7 @@ function getTeamsFromTourney(keyword) {
 
 client.on('ready', () => {
    console.log('I am ready!');
+   client.user.setActivity("f help");
    var channelID = '515786957125844996';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
    /*new CronJob('00 00 21 * * *', function () {
