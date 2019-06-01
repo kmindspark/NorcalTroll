@@ -156,6 +156,7 @@ client.on('message', message => {
       });
    }
    else if (curMessageContent.includes('f members')) {
+      message.reply("test")
       let server = message.guild;
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
