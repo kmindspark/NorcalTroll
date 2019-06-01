@@ -218,7 +218,7 @@ client.on('message', message => {
          }
       });
    }
-   else if (curMessageContent.includes('f orecord')) {
+   else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 3 && teams.length != 4) {
          //bad case
