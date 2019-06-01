@@ -6,10 +6,7 @@ const client = new Discord.Client();
 let cumulativeNames = ""
 
 function addNicknameIfValid(key) {
-   let nickname = key.displayName;
-   if (nickname.includes(teams[2].toUpperCase())) {
-      cumulativeNames += nickname + "\n"
-   }
+
 }
 
 function httpGet(theUrl) {
@@ -172,7 +169,10 @@ client.on('message', message => {
 
          //guild.members.map((key) => addNicknameIfValid(key));
          for (var key in guild.members) {
-            message.reply(Key.displayName);
+            let nickname = key.displayName;
+            if (nickname.includes(teams[2].toUpperCase())) {
+               cumulativeNames += nickname + "\n"
+            }
          }
          message.reply("Hello");
          cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
