@@ -169,8 +169,8 @@ client.on('message', message => {
 
          //guild.members.map((key) => addNicknameIfValid(key));
          for (var key in guild.members) {
-            let nickname = key.displayName;
-            message.reply("hello");
+            message.reply("Test")
+            let nickname = guild[key].displayName;
             if (nickname.includes(teams[2].toUpperCase())) {
                cumulativeNames += nickname + "\n"
             }
