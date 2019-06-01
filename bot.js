@@ -280,68 +280,6 @@ client.on('message', message => {
          }
       }
    }
-   /*else if (curMessageContent.includes('f orgrecord')) {
-      let teams = curMessageContent.split(" ");
-      if (teams.length != 3 && teams.length != 4) {
-         //bad case
-      }
-      else {
-         let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
-         let result = JSON.parse(resp).result;
-         let win = 0;
-         let tie = 0;
-         let loss = 0;
-         if (teams.length >= 3) {
-            for (i = 0; i < result.length; i++) {
-               let comparison = teams.length == 4;
-               let validComparison = !comparison;
-               var red = false;
-               if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-                  red = true;
-               }
-               if (comparison) {
-                  if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
-                     || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
-                     validComparison = true;
-                  }
-               }
-               if (validComparison) {
-                  if (result[i].redscore == result[i].bluescore) {
-                     tie++;
-                  }
-                  else if (result[i].redscore > result[i].bluescore) {
-                     if (red) {
-                        win++;
-                     }
-                     else {
-                        loss++;
-                     }
-                  }
-                  else {
-                     if (red) {
-                        loss++;
-                     }
-                     else {
-                        win++;
-                     }
-                  }
-               }
-            }
-            var myAppend = "";
-            if (teams.length == 4) {
-               myAppend = " against " + teams[3].toUpperCase();
-            }
-            message.channel.send({
-               embed: {
-                  color: 1302784,
-                  title: "Record for " + teamOfInterest + myAppend,
-                  description: win + "-" + loss + "-" + tie
-               }
-            });
-         }
-      }
-   }*/
    else if (curMessageContent.includes('f arecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
