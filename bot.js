@@ -164,7 +164,7 @@ client.on('message', message => {
 
       message.channel.send({
          embed: {
-            color: 16711782,
+            color: 12517631,
             title: "Upcoming California Events",
             description: cumulative
          }
@@ -379,7 +379,7 @@ client.on('message', message => {
 
       message.channel.send({
          embed: {
-            color: 1302784,
+            color: 12517631,
             title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
             description: totalMatches
          }
@@ -424,7 +424,7 @@ client.on('message', message => {
 
       message.channel.send({
          embed: {
-            color: 1302784,
+            color: 12517631,
             title: "Matches played by alliance " + teamOfInterest + " and " + teams[3].toUpperCase(),
             description: totalMatches
          }
