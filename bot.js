@@ -142,7 +142,7 @@ client.on('message', message => {
          let eventDate = result[i].start;
          eventDate = eventDate.substr(0, eventDate.indexOf('T'));
          eventYear = eventDate.substr(0, eventDate.indexOf("-") + 1);
-         eventDate = eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear;
+         eventDate = (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).substring(0, (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).length - 1);
 
          cumulative += eventName + ", " + eventDate;
       }
