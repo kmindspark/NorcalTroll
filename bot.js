@@ -161,7 +161,7 @@ client.on('message', message => {
       let teams = curMessageContent.split(" ");
       let cumulative = ""
       for (var key in members) {
-         let nickname = members.displayName;
+         let nickname = members[key].displayName;
          if (nickname.includes(teams[2].toUpperCase())) {
             cumulative += nickname + "\n"
          }
