@@ -156,7 +156,7 @@ client.on('message', message => {
          eventYear = eventDate.substr(0, eventDate.indexOf("-") + 1);
          eventDate = (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).substring(0, (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).length - 1);
 
-         cumulative += eventDate + ": [" + eventName + "] (" + "https://www.robotevents.com/robot-competitions/vex-robotics-competition/" + result[i].sku + ".html)";
+         cumulative += eventDate + ": [" + eventName + "](" + "https://www.robotevents.com/robot-competitions/vex-robotics-competition/" + result[i].sku + ".html)";
       }
 
       message.channel.send({
