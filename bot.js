@@ -158,9 +158,8 @@ client.on('message', message => {
    else if (curMessageContent.includes('f members')) {
       let server = message.guild;
       server.fetchMembers().then((guild) => {
-         let size = guild.members.length;
+         let size = guild.members.size;
          message.reply(size);
-         message.reply("hello");
          let teams = curMessageContent.split(" ");
          let cumulative = ""
          for (var key in guild.members) {
@@ -169,7 +168,7 @@ client.on('message', message => {
                cumulative += nickname + "\n"
             }
          }
-         cumulative.substr(0, cumulative.length - 1);
+         cumulative = cumulative.substr(0, cumulative.length - 1);
 
          message.channel.send({
             embed: {
