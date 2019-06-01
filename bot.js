@@ -170,8 +170,11 @@ client.on('message', message => {
          message.reply(size);
          let teams = curMessageContent.split(" ");
 
-         guild.members.map((key) => addNicknameIfValid(key));
-         message.reply(cumulativeNames);
+         //guild.members.map((key) => addNicknameIfValid(key));
+         for (var key in guild.members) {
+            message.reply(Key.displayName);
+         }
+         message.reply("Hello");
          cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
 
          message.channel.send({
