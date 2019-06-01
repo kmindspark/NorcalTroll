@@ -147,7 +147,7 @@ client.on('message', message => {
       message.channel.send({
          embed: {
             color: 16711782,
-            title: "Upcoming Events",
+            title: "Upcoming California Events",
             description: cumulative
          }
       });
