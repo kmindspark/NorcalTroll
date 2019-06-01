@@ -158,10 +158,11 @@ client.on('message', message => {
    else if (curMessageContent.includes('f members')) {
       var server = message.guild;
       let members = server.members;
+      var size = Object.keys(members).length;
+      message.reply(size);
       let teams = curMessageContent.split(" ");
       let cumulative = ""
       for (var key in members) {
-         message.reply("test");
          let nickname = members[key].displayName;
          if (nickname.includes(teams[2].toUpperCase())) {
             cumulative += nickname + "\n"
