@@ -165,6 +165,9 @@ client.on('message', message => {
          message.reply(guild.members[0])
          let teams = curMessageContent.split(" ");
          let cumulative = ""
+
+         guild.members.map((item) => message.reply("item iterated"))
+         /*
          for (var key in guild.members) {
             message.reply(typeof (key))
             let nickname = key.displayName;
@@ -172,7 +175,7 @@ client.on('message', message => {
             if (nickname.includes(teams[2].toUpperCase())) {
                cumulative += nickname + "\n"
             }
-         }
+         }*/
          cumulative = cumulative.substr(0, cumulative.length - 1);
 
          message.channel.send({
