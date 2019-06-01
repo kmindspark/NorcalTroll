@@ -133,7 +133,8 @@ client.on('message', message => {
                ** f arecord <team> <alliance>:** Fitch tells you the W-L-T for the specified alliance. \n \
                ** f orecord <team>:** Fitch gives you a record for the whole organization. \n \
                ** f rank:** Fitch gives you a ranking of NorCal teams based on win percentages. \n \
-               ** f events:** Fitch gives you a listing of upcoming events in California. \n \ "
+               ** f events:** Fitch gives you a listing of upcoming events in California. \n \
+               ** f members<team>** Fitch gives you a list of the members on the specified team."
          }
       });
    }
