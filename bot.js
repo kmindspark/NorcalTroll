@@ -8,6 +8,10 @@ let curTeam = ""
 let memberCount = 0
 let curSeason = "Turning%20Point"
 
+client.on('ready', () => {
+   client.user.setGame('f help')
+})
+
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
    if (nickname.includes(curTeam.toUpperCase())) {
