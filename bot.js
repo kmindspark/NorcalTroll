@@ -135,7 +135,8 @@ client.on('message', message => {
                ** f orecord <team>:** Fitch gives you a record for the whole organization. \n \
                ** f rank:** Fitch gives you a ranking of NorCal teams based on win percentages. \n \
                ** f events:** Fitch gives you a listing of upcoming events in California. \n \
-               ** f members <team>:** Fitch gives you a list of the members on the team specified."
+               ** f members <team>:** Fitch gives you a list of the members on the team specified. \n \
+               ** f matches <team> <opponent>:** Fitch gives you a listing of matches played between two teams with scores."
          }
       });
    }
@@ -363,7 +364,15 @@ client.on('message', message => {
             validComparison = true;
          }
          if (validComparison) {
-            totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            if (result[i].redscore == result[i].bluescore) {
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            }
+            else if (result[i].redscore > result[i].bluescore) {
+               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            }
+            else {
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**\n";
+            }
          }
       }
 
