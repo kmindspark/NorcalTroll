@@ -142,7 +142,7 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent === 'f events') {
-      cumulativeNames = ""
+      let cumulative = ""
       let resp = httpGet("https://api.vexdb.io/v1/get_events?season=Tower%20Takeover&region=California&status=future");
       let result = JSON.parse(resp).result;
 
