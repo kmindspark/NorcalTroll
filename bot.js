@@ -170,7 +170,6 @@ client.on('message', message => {
       cumulativeNames = ""
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
-         message.reply(size);
          let teams = curMessageContent.split(" ");
          curTeam = teams[2];
 
