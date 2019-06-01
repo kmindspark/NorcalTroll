@@ -8,7 +8,7 @@ let curTeam = ""
 let memberCount = 0
 let curSeason = "Turning%20Point"
 
-await bot.change_presence(game = discord.Game(name = 'f help'))
+await client.change_presence(game = discord.Game(name = 'f help'))
 
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
