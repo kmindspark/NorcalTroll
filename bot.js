@@ -171,7 +171,7 @@ client.on('message', message => {
          message.reply(size);
          let teams = curMessageContent.split(" ");
 
-         guild.members.map((key) => addNicknameIfValid(key));
+         guild.members.map((key) => message.reply(key.displayName));//addNicknameIfValid(key));
 
          cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
 
