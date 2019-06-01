@@ -5,11 +5,13 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const client = new Discord.Client();
 let cumulativeNames = ""
 let curTeam = ""
+let memberCount = 0
 
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
    if (nickname.includes(curTeam.toUpperCase())) {
       cumulativeNames += nickname + "\n"
+      memberCount += 1;
    }
 }
 
@@ -168,19 +170,20 @@ client.on('message', message => {
       let server = message.guild;
       curTeam = ""
       cumulativeNames = ""
+      memberCount = 0;
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
          let teams = curMessageContent.split(" ");
          curTeam = teams[2];
 
-         guild.members.map((key) => addNicknameIfValid(key));//
+         guild.members.map((key) => addNicknameIfValid(key));
 
          cumulativeNames = cumulativeNames.substr(0, cumulativeNames.length - 1);
 
          message.channel.send({
             embed: {
                color: 16711782,
-               title: "Members of " + teams[2].toUpperCase(),
+               title: "Members of " + teams[2].toUpperCase() + "(" + memberCount + ")",
                description: cumulativeNames
             }
          });
