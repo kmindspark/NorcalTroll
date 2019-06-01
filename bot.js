@@ -6,6 +6,7 @@ const client = new Discord.Client();
 let cumulativeNames = ""
 let curTeam = ""
 let memberCount = 0
+let curSeason = "Turning%20Point"
 
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
@@ -23,7 +24,7 @@ function httpGet(theUrl) {
 }
 
 function getWinPercent(teamOfInterest, message) {
-   let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
+   let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
    let result = JSON.parse(resp).result;
    let win = 0.0;
    let tie = 0.0;
@@ -143,7 +144,7 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'f events') {
       let cumulative = ""
-      let resp = httpGet("https://api.vexdb.io/v1/get_events?season=Tower%20Takeover&region=California&status=future");
+      let resp = httpGet("https://api.vexdb.io/v1/get_events?season=" + curSeason + "&region=California&status=future");
       let result = JSON.parse(resp).result;
 
       for (i = 0; i < result.length; i++) {
@@ -224,7 +225,7 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
@@ -348,7 +349,7 @@ client.on('message', message => {
       }
       else {
          let teamOfInterest = teams[2].toUpperCase();
-         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
          let win = 0;
          let tie = 0;
@@ -399,6 +400,9 @@ client.on('message', message => {
          });
       }
    }
+   else if (curMessageContent.includes('f matches')) {
+
+   }
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
@@ -412,7 +416,7 @@ client.on('message', message => {
          for (r = 0; r < teamList.length; r++) {
             let teamOfInterest = teamList[r].toUpperCase();
 
-            let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=Tower%20Takeover&team=" + teamOfInterest);
+            let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
             let result = JSON.parse(resp).result;
 
             for (i = 0; i < result.length; i++) {
@@ -474,23 +478,23 @@ client.on('message', message => {
       }
    }
    else if (curMessageContent.includes("leek")) {
-      message.channel.send('fingerslip?');
-      setTimeout(function () { message.channel.send('made u look'); }, 2000);
+      message.channel.send('Fingerslip?');
+      setTimeout(function () { message.channel.send('Made you look'); }, 2000);
    }
    else if (curMessageContent.includes("vex is bad")) {
-      message.channel.send('that\'s why I quit');
+      message.channel.send('That\'s why I quit');
    }
    else if (message.member.displayName.includes("5776T") && myRandom(36)) {
-      message.channel.send("Yo DVT why didn't u get excellence at DV");
+      message.channel.send("DVT why didn't you get excellence at DV");
    }
    else if (message.member.displayName.includes("Andrew") && myRandom(35)) {
       message.channel.send("007 thrower");
    }
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(50)) {
-      message.channel.send("yo 315x shoulda picked Lewie at worlds");
+      message.channel.send("315x shoulda picked Lewie at worlds");
    }
    else if (message.member.displayName.includes("Kau") && myRandom(100)) {
-      message.channel.send("Kau Kau! Mooooo! :cow:");
+      message.channel.send("Mooooo! :cow:");
    }
    else if (message.member.roles.find("name", "315") && myRandom(110)) {
       message.channel.send("315 throwers");
@@ -505,7 +509,7 @@ client.on('message', message => {
       message.channel.send("Ayy it's discount Gael Force");
    }
    else if (message.member.roles.find("name", "86868R") && myRandom(10)) {
-      message.channel.send("We get it Dylon you won worlds just like 8k");
+      message.channel.send("We get it you won worlds just like 8k");
    }
    else if (message.member.roles.find("name", "22095") && myRandom(50)) {
       message.channel.send("Look it's steel boi");
