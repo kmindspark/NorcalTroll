@@ -3,6 +3,14 @@ var CronJob = require('cron').CronJob;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const client = new Discord.Client();
+let cumulativeNames = ""
+
+function addNicknameIfValid(key) {
+   let nickname = key.displayName;
+   if (nickname.includes(teams[2].toUpperCase())) {
+      cumulativeNames += nickname + "\n"
+   }
+}
 
 function httpGet(theUrl) {
    var xmlHttp = new XMLHttpRequest();
@@ -130,9 +138,9 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent === 'f events') {
+      cumulativeNames = ""
       let resp = httpGet("https://api.vexdb.io/v1/get_events?season=Tower%20Takeover&region=California&status=future");
       let result = JSON.parse(resp).result;
-      let cumulative = ""
 
       for (i = 0; i < result.length; i++) {
          if (i != 0) {
@@ -156,26 +164,13 @@ client.on('message', message => {
       });
    }
    else if (curMessageContent.includes('f members')) {
-      message.reply("test")
       let server = message.guild;
       server.fetchMembers().then((guild) => {
          let size = guild.members.size;
-         message.reply(size);
-         message.reply(typeof (guild.members))
-         message.reply(guild.members[0])
          let teams = curMessageContent.split(" ");
          let cumulative = ""
 
-         guild.members.map((item) => message.reply(item.displayName))
-         /*
-         for (var key in guild.members) {
-            message.reply(typeof (key))
-            let nickname = key.displayName;
-            message.reply(nickname)
-            if (nickname.includes(teams[2].toUpperCase())) {
-               cumulative += nickname + "\n"
-            }
-         }*/
+         guild.members.map((key) => addNicknameIfValid(key));
          cumulative = cumulative.substr(0, cumulative.length - 1);
 
          message.channel.send({
