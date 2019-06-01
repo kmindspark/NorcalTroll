@@ -384,11 +384,56 @@ client.on('message', message => {
          }
       });
    }
+   else if (curMessageContent.includes('f amatches')) {
+      let teams = curMessageContent.split(" ");
+      if (teams.length != 4) {
+         //bad case
+      }
+      let teamOfInterest = teams[2].toUpperCase();
+      let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
+      let result = JSON.parse(resp).result;
+      let win = 0;
+      let tie = 0;
+      let loss = 0;
+
+      let totalMatches = "";
+
+      for (i = 0; i < result.length; i++) {
+         let validComparison = false;
+         var red = false;
+         if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+            red = true;
+         }
+         if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+            || (!red && (result[i].blue2 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+            validComparison = true;
+         }
+         if (validComparison) {
+            if (result[i].redscore == result[i].bluescore) {
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            }
+            else if (result[i].redscore > result[i].bluescore) {
+               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+            }
+            else {
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**\n";
+            }
+         }
+      }
+
+      message.channel.send({
+         embed: {
+            color: 1302784,
+            title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
+            description: totalMatches
+         }
+      });
+   }
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
       if (teams.length == 3) {
          var teamList = [];
-         teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "I", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "O", teams[2] + "P", teams[2] + "Q", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
+         teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "P", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
 
          let win = 0;
          let tie = 0;
