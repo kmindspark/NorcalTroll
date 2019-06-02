@@ -412,7 +412,7 @@ client.on('message', message => {
             curAdd += matchType
 
             if (curAdd.length > 100) {
-               curAdd = curAdd.substring(0, 97) + "..."
+               curAdd = curAdd.substring(0, 97).trim() + "..."
             }
 
             totalMatches += curAdd + "\n";
