@@ -386,19 +386,19 @@ client.on('message', message => {
                   matchType = "Practice " + result[i].matchnum + ", "
                   break;
                case 2:
-                  matchType = "Qualification " + result[i].matchnum + ", "
+                  matchType = "Qual " + result[i].matchnum + ", "
                   break;
                case 3:
-                  matchType = "Quarterfinals-" + result[i].instance + ", "
+                  matchType = "QF " + result[i].instance + ", "
                   break;
                case 4:
-                  matchType = "Semifinals-" + result[i].instance + ", "
+                  matchType = "SF " + result[i].instance + ", "
                   break;
                case 5:
-                  matchType = "Finals-" + result[i].instance + ", "
+                  matchType = "F" + result[i].instance + ", "
                   break;
                case 6:
-                  matchType = "Round of 16-" + result[i].instance + ", "
+                  matchType = "RO16 " + result[i].instance + ", "
                   break;
                default:
                   matchType = ""
