@@ -404,10 +404,10 @@ client.on('message', message => {
                   matchType = ""
             }
 
-            resp = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
-            result = JSON.parse(resp).result;
+            let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
+            let result2 = JSON.parse(resp2).result;
 
-            matchType += result[0].name
+            matchType += result2[0].name
 
             totalMatches += matchType + "\n";
          }
