@@ -366,17 +366,18 @@ client.on('message', message => {
             validComparison = true;
          }
          if (validComparison) {
+            let curAdd = ""
             if (result[i].redscore == result[i].bluescore) {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
             }
             else if (result[i].redscore > result[i].bluescore) {
-               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
             }
             else {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
+               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
             }
 
-            totalMatches += " | "
+            curAdd += " | "
 
             let roundNum = result[i].round
             let matchType = "";
@@ -408,8 +409,13 @@ client.on('message', message => {
             let result2 = JSON.parse(resp2).result;
 
             matchType += result2[0].name
+            curAdd += matchType
 
-            totalMatches += matchType + "\n";
+            if (curAdd.length > 106) {
+               curAdd = curAdd.substring(0, 104) + "..."
+            }
+
+            totalMatches += curAdd + "\n";
          }
       }
 
