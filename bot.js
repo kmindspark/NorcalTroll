@@ -411,8 +411,8 @@ client.on('message', message => {
             matchType += result2[0].name
             curAdd += matchType
 
-            if (curAdd.length > 106) {
-               curAdd = curAdd.substring(0, 104) + "..."
+            if (curAdd.length > 100) {
+               curAdd = curAdd.substring(0, 97) + "..."
             }
 
             totalMatches += curAdd + "\n";
