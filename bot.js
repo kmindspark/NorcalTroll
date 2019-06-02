@@ -367,16 +367,56 @@ client.on('message', message => {
          }
          if (validComparison) {
             if (result[i].redscore == result[i].bluescore) {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
             }
             else if (result[i].redscore > result[i].bluescore) {
-               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
             }
             else {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**\n";
+               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
             }
          }
+
+         while (totalMatches.length < 70) {
+            totalMatches += " "
+         }
+         totalMatches += "| "
+
+         let roundNum = result[i].round
+         let matchType = "";
+
+         switch (roundNum) {
+            case 1:
+               matchType = "Practice " + result[i].matchnum + ", "
+               break;
+            case 2:
+               matchType = "Qualification " + result[i].matchnum + ", "
+               break;
+            case 3:
+               matchType = "Quarterfinals-" + result[i].instance + ", "
+               break;
+            case 4:
+               matchType = "Semifinals-" + result[i].instance + ", "
+               break;
+            case 5:
+               matchType = "Finals-" + result[i].instance + ", "
+               break;
+            case 6:
+               matchType = "Round of 16-" + result[i].instance + ", "
+               break;
+            default:
+               matchType = ""
+         }
+
+         resp = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
+         result = JSON.parse(resp).result;
+
+         matchType += result[0].name
+
+         totalMatches += matchType + "\n";
       }
+
+
 
       message.channel.send({
          embed: {
