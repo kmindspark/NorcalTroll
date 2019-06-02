@@ -377,12 +377,12 @@ client.on('message', message => {
             }
          }
 
-         /*while (totalMatches.length < 70) {
+         while (totalMatches.length < 70) {
             totalMatches += " "
          }
          totalMatches += "| "
 
-         let roundNum = result[i].round
+         /*let roundNum = result[i].round
          let matchType = "";
 
          switch (roundNum) {
