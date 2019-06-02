@@ -377,7 +377,7 @@ client.on('message', message => {
             }
          }
 
-         /*while (totalMatches.length < 70) {
+         while (totalMatches.length < 70) {
             totalMatches += " "
          }
          totalMatches += "| "
@@ -411,9 +411,9 @@ client.on('message', message => {
          resp = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
          result = JSON.parse(resp).result;
 
-         matchType += result[0].name*/
+         matchType += result[0].name
 
-         totalMatches += matchType + "\n";
+         totalMatches += totalMatches += matchType + "\n";
       }
 
       message.channel.send({
