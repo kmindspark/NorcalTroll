@@ -376,10 +376,7 @@ client.on('message', message => {
                totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
             }
 
-            while (totalMatches.length < 70) {
-               totalMatches += " "
-            }
-            totalMatches += "| "
+            totalMatches += " | "
 
             let roundNum = result[i].round
             let matchType = "";
