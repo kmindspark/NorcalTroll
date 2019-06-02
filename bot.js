@@ -411,8 +411,8 @@ client.on('message', message => {
             matchType += result2[0].name
             curAdd += matchType
 
-            if (curAdd.length > 100) {
-               curAdd = curAdd.substring(0, 97).trim() + "..."
+            if (curAdd.length > 102) {
+               curAdd = curAdd.substring(0, 99).trim() + "..."
             }
 
             totalMatches += curAdd + "\n";
@@ -452,15 +452,56 @@ client.on('message', message => {
             validComparison = true;
          }
          if (validComparison) {
+            let curAdd = ""
             if (result[i].redscore == result[i].bluescore) {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
             }
             else if (result[i].redscore > result[i].bluescore) {
-               totalMatches += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
+               curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2 + "\n";
             }
             else {
-               totalMatches += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**\n";
+               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**\n";
             }
+
+            curAdd += " | "
+
+            let roundNum = result[i].round
+            let matchType = "";
+
+            switch (roundNum) {
+               case 1:
+                  matchType = "Practice " + result[i].matchnum + ", "
+                  break;
+               case 2:
+                  matchType = "Qual " + result[i].matchnum + ", "
+                  break;
+               case 3:
+                  matchType = "QF " + result[i].instance + ", "
+                  break;
+               case 4:
+                  matchType = "SF " + result[i].instance + ", "
+                  break;
+               case 5:
+                  matchType = "F" + result[i].instance + ", "
+                  break;
+               case 6:
+                  matchType = "RO16 " + result[i].instance + ", "
+                  break;
+               default:
+                  matchType = ""
+            }
+
+            let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
+            let result2 = JSON.parse(resp2).result;
+
+            matchType += result2[0].name
+            curAdd += matchType
+
+            if (curAdd.length > 102) {
+               curAdd = curAdd.substring(0, 99).trim() + "..."
+            }
+
+            totalMatches += curAdd + "\n";
          }
       }
 
