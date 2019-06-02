@@ -413,7 +413,7 @@ client.on('message', message => {
 
          matchType += result[0].name
 
-         totalMatches += totalMatches += matchType + "\n";
+         totalMatches += totalMatches + matchType + "\n";
       }
 
       message.channel.send({
