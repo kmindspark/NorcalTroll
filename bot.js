@@ -147,7 +147,7 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'f events') {
       let cumulative = ""
-      let resp = httpGet("https://api.vexdb.io/v1/get_events?season=" + curSeason + "&region=California&status=future");
+      let resp = httpGet("https://api.vexdb.io/v1/get_events?region=California&status=future");
       let result = JSON.parse(resp).result;
 
       for (i = 0; i < result.length; i++) {
