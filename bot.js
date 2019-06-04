@@ -639,7 +639,7 @@ client.on('message', message => {
          message.channel.send("8k was good while I was part of it");
       }
    }
-   else if (curMessageContent.includes("lewie") && myRandom(20)) {
+   else if (curMessageContent.includes("lewie") && myRandom(10)) {
       message.channel.send("Hey, that name sounds familiar!")
    }
    else if (curMessageContent === "f" && myRandom(10)) {
