@@ -145,7 +145,7 @@ client.on('message', message => {
    else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
    }
-   else if (curMessageContent.includes('fitch') && (curMessageContent.includes("made you") || curMessageContent.include("created you"))) {
+   else if (curMessageContent.includes('fitch') && (curMessageContent.includes("made you") || curMessageContent.include("created you") || curMessageContent.includes("made u") || curMessageContent.include("created u"))) {
       message.channel.send(':cow: :cow:');
    }
    else if (curMessageContent === 'f events') {
