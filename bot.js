@@ -145,6 +145,9 @@ client.on('message', message => {
    else if (curMessageContent === 'f ping') {
       message.reply('Pong!');
    }
+   else if (curMessageContent.includes('fitch') && (curMessageContent.includes("made") || curMessageContent.include("created"))) {
+      message.channel.send(':cow: :cow:');
+   }
    else if (curMessageContent === 'f events') {
       let cumulative = ""
       let resp = httpGet("https://api.vexdb.io/v1/get_events?region=California&status=future");
