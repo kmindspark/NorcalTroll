@@ -350,172 +350,176 @@ client.on('message', message => {
       if (teams.length != 4) {
          //bad case
       }
-      let teamOfInterest = teams[2].toUpperCase();
-      let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
-      let result = JSON.parse(resp).result;
-      let win = 0;
-      let tie = 0;
-      let loss = 0;
+      else {
+         let teamOfInterest = teams[2].toUpperCase();
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
+         let result = JSON.parse(resp).result;
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
 
-      let totalMatches = "";
+         let totalMatches = "";
 
-      for (i = 0; i < result.length; i++) {
-         let validComparison = false;
-         var red = false;
-         if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-            red = true;
+         for (i = 0; i < result.length; i++) {
+            let validComparison = false;
+            var red = false;
+            if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+               red = true;
+            }
+            if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+               || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
+               validComparison = true;
+            }
+            if (validComparison) {
+               let curAdd = ""
+               if (result[i].redscore == result[i].bluescore) {
+                  curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               }
+               else if (result[i].redscore > result[i].bluescore) {
+                  curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               }
+               else {
+                  curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
+               }
+
+               curAdd += " | "
+
+               let roundNum = result[i].round
+               let matchType = "";
+
+               switch (roundNum) {
+                  case 1:
+                     matchType = "Practice " + result[i].matchnum + ", "
+                     break;
+                  case 2:
+                     matchType = "Qual " + result[i].matchnum + ", "
+                     break;
+                  case 3:
+                     matchType = "QF " + result[i].instance + ", "
+                     break;
+                  case 4:
+                     matchType = "SF " + result[i].instance + ", "
+                     break;
+                  case 5:
+                     matchType = "F" + result[i].instance + ", "
+                     break;
+                  case 6:
+                     matchType = "RO16 " + result[i].instance + ", "
+                     break;
+                  default:
+                     matchType = ""
+               }
+
+               let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
+               let result2 = JSON.parse(resp2).result;
+
+               matchType += result2[0].name
+               curAdd += matchType
+
+               if (curAdd.length > 102) {
+                  curAdd = curAdd.substring(0, 99).trim() + "..."
+               }
+
+               totalMatches += curAdd + "\n";
+            }
          }
-         if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
-            || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
-            validComparison = true;
-         }
-         if (validComparison) {
-            let curAdd = ""
-            if (result[i].redscore == result[i].bluescore) {
-               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+
+         message.channel.send({
+            embed: {
+               color: 12517631,
+               title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
+               description: totalMatches
             }
-            else if (result[i].redscore > result[i].bluescore) {
-               curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
-            }
-            else {
-               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
-            }
-
-            curAdd += " | "
-
-            let roundNum = result[i].round
-            let matchType = "";
-
-            switch (roundNum) {
-               case 1:
-                  matchType = "Practice " + result[i].matchnum + ", "
-                  break;
-               case 2:
-                  matchType = "Qual " + result[i].matchnum + ", "
-                  break;
-               case 3:
-                  matchType = "QF " + result[i].instance + ", "
-                  break;
-               case 4:
-                  matchType = "SF " + result[i].instance + ", "
-                  break;
-               case 5:
-                  matchType = "F" + result[i].instance + ", "
-                  break;
-               case 6:
-                  matchType = "RO16 " + result[i].instance + ", "
-                  break;
-               default:
-                  matchType = ""
-            }
-
-            let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
-            let result2 = JSON.parse(resp2).result;
-
-            matchType += result2[0].name
-            curAdd += matchType
-
-            if (curAdd.length > 102) {
-               curAdd = curAdd.substring(0, 99).trim() + "..."
-            }
-
-            totalMatches += curAdd + "\n";
-         }
+         });
       }
-
-      message.channel.send({
-         embed: {
-            color: 12517631,
-            title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
-            description: totalMatches
-         }
-      });
    }
    else if (curMessageContent.includes('f amatches')) {
       let teams = curMessageContent.split(" ");
       if (teams.length != 4) {
          //bad case
       }
-      let teamOfInterest = teams[2].toUpperCase();
-      let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
-      let result = JSON.parse(resp).result;
-      let win = 0;
-      let tie = 0;
-      let loss = 0;
+      else {
+         let teamOfInterest = teams[2].toUpperCase();
+         let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
+         let result = JSON.parse(resp).result;
+         let win = 0;
+         let tie = 0;
+         let loss = 0;
 
-      let totalMatches = "";
+         let totalMatches = "";
 
-      for (i = 0; i < result.length; i++) {
-         let validComparison = false;
-         var red = false;
-         if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
-            red = true;
+         for (i = 0; i < result.length; i++) {
+            let validComparison = false;
+            var red = false;
+            if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
+               red = true;
+            }
+            if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
+               || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
+               validComparison = true;
+            }
+            if (validComparison) {
+               let curAdd = ""
+               if (result[i].redscore == result[i].bluescore) {
+                  curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               }
+               else if (result[i].redscore > result[i].bluescore) {
+                  curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+               }
+               else {
+                  curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
+               }
+
+               curAdd += " | "
+
+               let roundNum = result[i].round
+               let matchType = "";
+
+               switch (roundNum) {
+                  case 1:
+                     matchType = "Practice " + result[i].matchnum + ", "
+                     break;
+                  case 2:
+                     matchType = "Qual " + result[i].matchnum + ", "
+                     break;
+                  case 3:
+                     matchType = "QF " + result[i].instance + ", "
+                     break;
+                  case 4:
+                     matchType = "SF " + result[i].instance + ", "
+                     break;
+                  case 5:
+                     matchType = "F" + result[i].instance + ", "
+                     break;
+                  case 6:
+                     matchType = "RO16 " + result[i].instance + ", "
+                     break;
+                  default:
+                     matchType = ""
+               }
+
+               let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
+               let result2 = JSON.parse(resp2).result;
+
+               matchType += result2[0].name
+               curAdd += matchType
+
+               if (curAdd.length > 102) {
+                  curAdd = curAdd.substring(0, 99).trim() + "..."
+               }
+
+               totalMatches += curAdd + "\n";
+            }
          }
-         if (red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase())
-            || (!red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase()))) {
-            validComparison = true;
-         }
-         if (validComparison) {
-            let curAdd = ""
-            if (result[i].redscore == result[i].bluescore) {
-               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
+
+         message.channel.send({
+            embed: {
+               color: 12517631,
+               title: "Matches played by alliance " + teamOfInterest + " and " + teams[3].toUpperCase(),
+               description: totalMatches
             }
-            else if (result[i].redscore > result[i].bluescore) {
-               curAdd += "**" + result[i].red1 + " " + result[i].red2 + "** :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: " + result[i].blue1 + " " + result[i].blue2;
-            }
-            else {
-               curAdd += result[i].red1 + " " + result[i].red2 + " :red_circle: " + result[i].redscore + "-" + result[i].bluescore + " :large_blue_circle: **" + result[i].blue1 + " " + result[i].blue2 + "**";
-            }
-
-            curAdd += " | "
-
-            let roundNum = result[i].round
-            let matchType = "";
-
-            switch (roundNum) {
-               case 1:
-                  matchType = "Practice " + result[i].matchnum + ", "
-                  break;
-               case 2:
-                  matchType = "Qual " + result[i].matchnum + ", "
-                  break;
-               case 3:
-                  matchType = "QF " + result[i].instance + ", "
-                  break;
-               case 4:
-                  matchType = "SF " + result[i].instance + ", "
-                  break;
-               case 5:
-                  matchType = "F" + result[i].instance + ", "
-                  break;
-               case 6:
-                  matchType = "RO16 " + result[i].instance + ", "
-                  break;
-               default:
-                  matchType = ""
-            }
-
-            let resp2 = httpGet("https://api.vexdb.io/v1/get_events?sku=" + result[i].sku);
-            let result2 = JSON.parse(resp2).result;
-
-            matchType += result2[0].name
-            curAdd += matchType
-
-            if (curAdd.length > 102) {
-               curAdd = curAdd.substring(0, 99).trim() + "..."
-            }
-
-            totalMatches += curAdd + "\n";
-         }
+         });
       }
-
-      message.channel.send({
-         embed: {
-            color: 12517631,
-            title: "Matches played by alliance " + teamOfInterest + " and " + teams[3].toUpperCase(),
-            description: totalMatches
-         }
-      });
    }
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
