@@ -112,7 +112,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
    let curMessageContent = newMessage.content.trim().toLowerCase();
    let curMessageContentPeriod = curMessageContent.replace(/\*/g, '').replace(/\s/g, '').replace(/~/g, '').replace(/`/g, '').replace(/\|/g, '');
    if (curMessageContentPeriod.endsWith(".")) {
-      newMessage.delete(2000);
+      //newMessage.delete(2000);
    }
 });
 
@@ -123,7 +123,7 @@ client.on('message', message => {
       message.reply('stop with the mentions');
    }
    if (curMessageContentPeriod.endsWith(".")) {
-      message.delete(2000);
+      //message.delete(2000);
    }
    if (curMessageContent === "fitch help" || curMessageContent === "f help") {
       message.channel.send({
