@@ -146,7 +146,7 @@ client.on('message', message => {
       message.reply('Pong!');
    }
    else if (curMessageContent.includes('fitch') && (curMessageContent.includes("made you") || curMessageContent.include("created you") || curMessageContent.includes("made u") || curMessageContent.include("created u"))) {
-      message.channel.send(':cow: :cow:');
+      message.reply(':cow: :cow:');
    }
    else if (curMessageContent === 'f events') {
       let cumulative = ""
