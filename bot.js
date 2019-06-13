@@ -98,7 +98,12 @@ client.on('ready', () => {
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 15 15 * * *', function () {
       if (myRandom(10)) {
-         client.channels.get(channelID).send('It\'s Paradigm\'o\'clock!')
+         client.channels.get(channelID).send('It\'s 3:15 — Paradigm\'o\'clock!')
+      }
+   }, null, true, 'America/Los_Angeles');
+   new CronJob('00 39 13 * * *', function () {
+      if (myRandom(10)) {
+         client.channels.get(channelID).send('It\'s 1:39 — DQ time!')
       }
    }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 22 * * *', function () {
