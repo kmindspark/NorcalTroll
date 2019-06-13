@@ -96,6 +96,11 @@ client.on('ready', () => {
          client.channels.get(channelID).send('Good morning everyone!')
       }
    }, null, true, 'America/Los_Angeles');
+   new CronJob('00 15 15 * * *', function () {
+      if (myRandom(10)) {
+         client.channels.get(channelID).send('It\'s Paradigm\'o\'clock!')
+      }
+   }, null, true, 'America/Los_Angeles');
    new CronJob('00 00 22 * * *', function () {
       if (myRandom(10)) {
          client.channels.get(channelID).send('Good night everyone!')
