@@ -82,7 +82,7 @@ function getTeamsFromTourney(keyword) {
 
 
 client.on('ready', () => {
-   console.log('I am ready!');
+   console.log('I am ready!!');
    var channelID = '515786957125844996';
    //client.channels.get('514191866418298883').send('I have been rebooted!')
    /*new CronJob('00 00 21 * * *', function () {
