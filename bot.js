@@ -6,7 +6,7 @@ const client = new Discord.Client();
 let cumulativeNames = ""
 let curTeam = ""
 let memberCount = 0
-let curSeason = "Turning%20Point"
+let curSeason = "Tower%20Takeover"
 
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
@@ -173,14 +173,19 @@ client.on('message', message => {
          eventYear = eventDate.substr(0, eventDate.indexOf("-") + 1);
          eventDate = (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).substring(0, (eventDate.substr(eventDate.indexOf("-") + 1) + "-" + eventYear).length - 1);
 
+         let oldcumulative = cumulative
          cumulative += eventDate + ": [" + eventName + "](" + "https://www.robotevents.com/robot-competitions/vex-robotics-competition/" + result[i].sku + ".html)";
+         if (cumulative.length > 1980) {
+            cumulative = oldcumulative 
+            break;
+         }
       }
 
       message.channel.send({
          embed: {
             color: 12517631,
             title: "Upcoming California Events",
-            description: cumulative.substring(0, Math.min(1960, cumulative.length - 1)) + "\n --MESSAGE TRIMMED--"
+            description: cumulative + "\n --MESSAGE TRIMMED--"
          }
       });
    }
@@ -208,8 +213,8 @@ client.on('message', message => {
       })
    }
    else if (curMessageContent === 'f rank') {
-      var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
-      //var teamsToRank = ['315A', '315T', '315R', '315S', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '7916A', '1350X'];
+      //var teamsToRank = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
+      var teamsToRank = ['315A', '315T', '315R', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '7916A', '1350X'];
       var vals = [];
       let finalString = '';
       for (i = 0; i < teamsToRank.length; i++) {
