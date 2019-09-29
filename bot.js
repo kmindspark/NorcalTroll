@@ -180,7 +180,7 @@ client.on('message', message => {
          embed: {
             color: 12517631,
             title: "Upcoming California Events",
-            description: cumulative
+            description: cumulative.substring(0, Math.min(1960, cumulative.length - 1)) + "\n --MESSAGE TRIMMED--"
          }
       });
    }
