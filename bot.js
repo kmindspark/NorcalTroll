@@ -220,6 +220,8 @@ client.on('message', message => {
       var vals = [];
       let finalString = '';
 
+      message.reply("1Here")
+
       for (i = 0; i < teamsToRank.length; i++){
          let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
