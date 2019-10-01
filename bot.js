@@ -225,13 +225,15 @@ client.on('message', message => {
          let result = JSON.parse(resp).result;
          vals.push(result.length);
       }
+
+      message.reply("Here")
       
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\%\n"
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
 
