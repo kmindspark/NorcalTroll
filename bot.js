@@ -216,11 +216,12 @@ client.on('message', message => {
       })
    }
    else if (curMessageContent === 'f awardrank'){
-      var teamsToRank = Array.from(teamsToRankOrig)
+      message.reply("2Here")
+      var teamsToRank = Array.from(teamsToRankOrig);
       var vals = [];
       let finalString = '';
 
-      message.reply("1Here")
+      message.reply("1Here");
 
       for (i = 0; i < teamsToRank.length; i++){
          let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamOfInterest);
@@ -228,7 +229,7 @@ client.on('message', message => {
          vals.push(result.length);
       }
 
-      message.reply("Here")
+      message.reply("Here");
       
       let count = 1
       while (teamsToRank.length > 0) {
