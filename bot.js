@@ -146,7 +146,8 @@ client.on('message', message => {
                ** f record <team> <optional team>:** Fitch tells you the W-L-T record for the specified team, and head to head if another team is specified. \n \
                ** f arecord <team> <alliance>:** Fitch tells you the W-L-T for the specified alliance. \n \
                ** f orecord <team>:** Fitch gives you a record for the whole organization. \n \
-               ** f rank:** Fitch gives you a ranking of NorCal teams based on win percentages. \n \
+               ** f winrank:** Fitch gives you a ranking of NorCal teams based on win percentages. \n \
+               ** f awardrank:** Fitch gives you a ranking of NorCal teams based on awards. \n \
                ** f events:** Fitch gives you a listing of upcoming events in California. \n \
                ** f members <team>:** Fitch gives you a list of the members on the team specified. \n \
                ** f matches <team> <opponent>:** Fitch gives you a listing of matches played between two teams with scores. \n \
@@ -216,20 +217,16 @@ client.on('message', message => {
       })
    }
    else if (curMessageContent === 'f awardrank'){
-      message.reply("2Here")
+
       var teamsToRank = Array.from(teamsToRankOrig);
       var vals = [];
       let finalString = '';
 
-      message.reply("1Here");
-      
       for (i = 0; i < teamsToRank.length; i++){
          let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamsToRank[i]);
          let result = JSON.parse(resp).result;
          vals.push(result.length);
       }
-
-      message.reply("Here");
       
       let count = 1
       while (teamsToRank.length > 0) {
