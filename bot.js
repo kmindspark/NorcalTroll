@@ -217,12 +217,12 @@ client.on('message', message => {
    }
    else if (curMessageContent === 'f awardrank'){
       message.reply("2Here")
-      /*var teamsToRank = Array.from(teamsToRankOrig);
+      var teamsToRank = Array.from(teamsToRankOrig);
       var vals = [];
       let finalString = '';
 
       message.reply("1Here");
-
+      /*
       for (i = 0; i < teamsToRank.length; i++){
          let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
