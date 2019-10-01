@@ -224,7 +224,7 @@ client.on('message', message => {
       message.reply("1Here");
       
       for (i = 0; i < teamsToRank.length; i++){
-         let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamOfInterest);
+         //let resp = httpGet("https://api.vexdb.io/v1/get_awards?season=" + curSeason + "&team=" + teamOfInterest);
          //let result = JSON.parse(resp).result;
          //vals.push(result.length);
       }
