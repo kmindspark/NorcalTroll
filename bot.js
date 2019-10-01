@@ -238,6 +238,7 @@ client.on('message', message => {
          finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
+       
 
       message.channel.send({
          embed: {
