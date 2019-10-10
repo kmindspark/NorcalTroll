@@ -8,7 +8,7 @@ let curTeam = ""
 let memberCount = 0
 let curSeason = "Tower%20Takeover"
 
-var teamsToRankOrig = ['315A', '315T', '315R', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '1350X'];
+var teamsToRankOrig = ['319A', '319X', '319Z', '315A', '315T', '315R', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '1350X'];
 
 function addNicknameIfValid(key) {
    let nickname = key.displayName;
