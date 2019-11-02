@@ -468,8 +468,8 @@ client.on('message', message => {
                matchType += result2[0].name
                curAdd += matchType
 
-               if (curAdd.length > 122) {
-                  curAdd = curAdd.substring(0, 119).trim() + "..."
+               if (curAdd.length > 102) {
+                  curAdd = curAdd.substring(0, 99).trim() + "..."
                }
 
                if (totalMatches.length + curAdd.length > 1980 && i < result.length - 1){
