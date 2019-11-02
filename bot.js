@@ -441,22 +441,22 @@ client.on('message', message => {
 
                switch (roundNum) {
                   case 1:
-                     matchType = "Practice " + result[i].matchnum + ", "
+                     matchType = "P" + result[i].matchnum + ", "
                      break;
                   case 2:
-                     matchType = "Qual " + result[i].matchnum + ", "
+                     matchType = "Q" + result[i].matchnum + ", "
                      break;
                   case 3:
-                     matchType = "QF " + result[i].instance + ", "
+                     matchType = "QF" + result[i].instance + ", "
                      break;
                   case 4:
-                     matchType = "SF " + result[i].instance + ", "
+                     matchType = "SF" + result[i].instance + ", "
                      break;
                   case 5:
                      matchType = "F" + result[i].instance + ", "
                      break;
                   case 6:
-                     matchType = "RO16 " + result[i].instance + ", "
+                     matchType = "R16 " + result[i].instance + ", "
                      break;
                   default:
                      matchType = ""
@@ -468,8 +468,8 @@ client.on('message', message => {
                matchType += result2[0].name
                curAdd += matchType
 
-               if (curAdd.length > 102) {
-                  curAdd = curAdd.substring(0, 99).trim() + "..."
+               if (curAdd.length > 122) {
+                  curAdd = curAdd.substring(0, 119).trim() + "..."
                }
 
                if (totalMatches.length + curAdd.length > 1980 && i < result.length - 1){
