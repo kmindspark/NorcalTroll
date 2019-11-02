@@ -474,7 +474,7 @@ client.on('message', message => {
                   curAdd = curAdd.substring(0, 99).trim() + "..."
                }
 
-               if (totalMatches.length + curAdd.length > 1980 && i == result.length - 1){
+               if (totalMatches.length + curAdd.length > 1980 && i < result.length - 1){
                   totalMatches += "\n--MESSAGE TRIMMED--"
                   break;
                }
