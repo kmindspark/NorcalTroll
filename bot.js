@@ -181,6 +181,7 @@ client.on('message', message => {
          cumulative += eventDate + ": [" + eventName + "](" + "https://www.robotevents.com/robot-competitions/vex-robotics-competition/" + result[i].sku + ".html)";
          if (cumulative.length > 1980) {
             cumulative = oldcumulative 
+            cumulative = cumulative + "\n --MESSAGE TRIMMED--"
             break;
          }
       }
@@ -189,7 +190,7 @@ client.on('message', message => {
          embed: {
             color: 12517631,
             title: "Upcoming California Events",
-            description: cumulative + "\n --MESSAGE TRIMMED--"
+            description: cumulative
          }
       });
    }
@@ -395,10 +396,11 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f matches')) {
       let teams = curMessageContent.split(" ");
-      if (teams.length != 4) {
+      if (teams.length != 3 && teams.length != 4) {
          //bad case
       }
       else {
+         let againstTeam = (teams.length == 4);
          let teamOfInterest = teams[2].toUpperCase();
          let resp = httpGet("https://api.vexdb.io/v1/get_matches?season=" + curSeason + "&team=" + teamOfInterest);
          let result = JSON.parse(resp).result;
@@ -409,14 +411,16 @@ client.on('message', message => {
          let totalMatches = "";
 
          for (i = 0; i < result.length; i++) {
-            let validComparison = false;
+            let validComparison = !againstTeam;
             var red = false;
             if (result[i].red1 === teamOfInterest || result[i].red2 === teamOfInterest) {
                red = true;
             }
-            if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
+            if (againstTeam) {
+               if (red && (result[i].blue1 === teams[3].toUpperCase() || result[i].blue2 === teams[3].toUpperCase())
                || (!red && (result[i].red1 === teams[3].toUpperCase() || result[i].red2 === teams[3].toUpperCase()))) {
-               validComparison = true;
+                  validComparison = true;
+               }
             }
             if (validComparison) {
                let curAdd = ""
@@ -468,14 +472,22 @@ client.on('message', message => {
                   curAdd = curAdd.substring(0, 99).trim() + "..."
                }
 
+               if (totalMatches.length + curAdd.length > 1980 && i == result.length - 1){
+                  totalMatches += "--MESSAGE TRIMMED--\n"
+                  break;
+               }
+
                totalMatches += curAdd + "\n";
             }
          }
-
+         let againstString = "Matches played by " + teamOfInterest
+         if (teams.length == 4){
+            againstString += " against " + teams[3].toUpperCase()
+         }
          message.channel.send({
             embed: {
                color: 12517631,
-               title: "Matches between " + teamOfInterest + " and " + teams[3].toUpperCase(),
+               title: againstString,
                description: totalMatches
             }
          });
