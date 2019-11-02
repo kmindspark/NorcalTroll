@@ -150,7 +150,7 @@ client.on('message', message => {
                ** f awardrank:** Fitch gives you a ranking of NorCal teams based on awards. \n \
                ** f events:** Fitch gives you a listing of upcoming events in California. \n \
                ** f members <team>:** Fitch gives you a list of the members on the team specified. \n \
-               ** f matches <team> <opponent>:** Fitch gives you a listing of matches played between two teams with scores. \n \
+               ** f matches <team> <optional opponent>:** Fitch gives you a listing of matches played by a team, and head-to-head if another team is given. \n \
                ** f amatches <team> <alliance>:** Fitch gives you a listing of matches played by an alliance of two teams with scores."
          }
       });
@@ -409,8 +409,6 @@ client.on('message', message => {
          let loss = 0;
 
          let totalMatches = "";
-
-         message.reply("Hello")
 
          for (i = 0; i < result.length; i++) {
             let validComparison = !againstTeam;
