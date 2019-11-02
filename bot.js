@@ -410,6 +410,8 @@ client.on('message', message => {
 
          let totalMatches = "";
 
+         message.reply("Hello")
+
          for (i = 0; i < result.length; i++) {
             let validComparison = !againstTeam;
             var red = false;
@@ -473,7 +475,7 @@ client.on('message', message => {
                }
 
                if (totalMatches.length + curAdd.length > 1980 && i == result.length - 1){
-                  totalMatches += "--MESSAGE TRIMMED--\n"
+                  totalMatches += "\n--MESSAGE TRIMMED--"
                   break;
                }
 
