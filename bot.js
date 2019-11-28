@@ -468,8 +468,8 @@ client.on('message', message => {
                matchType += result2[0].name
                curAdd += matchType
 
-               if (curAdd.length > 102) {
-                  curAdd = curAdd.substring(0, 99).trim() + "..."
+               if (curAdd.length > 98) {
+                  curAdd = curAdd.substring(0, 96).trim() + "..."
                }
 
                if (totalMatches.length + curAdd.length > 1980 && i < result.length - 1){
@@ -564,8 +564,8 @@ client.on('message', message => {
                matchType += result2[0].name
                curAdd += matchType
 
-               if (curAdd.length > 102) {
-                  curAdd = curAdd.substring(0, 99).trim() + "..."
+               if (curAdd.length > 98) {
+                  curAdd = curAdd.substring(0, 96).trim() + "..."
                }
 
                totalMatches += curAdd + "\n";
