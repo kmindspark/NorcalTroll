@@ -217,6 +217,41 @@ client.on('message', message => {
          });
       })
    }
+   else if (curMessageContent === 'f skillsrank'){
+      var teamsToRank = Array.from(teamsToRankOrig);
+      var vals = [];
+      let finalString = '';
+
+      for (i = 0; i < teamsToRank.length; i++){
+         let resp = httpGet("https://api.vexdb.io/v1/get_skills?season=" + curSeason + "&team=" + teamsToRank[i]);
+         let result = JSON.parse(resp).result;
+         let maxSkills = 0;
+         for (k = 0; k < result.length; k++) {
+            if (maxSkills < result[k].score){
+               maxSkills = result[k].score
+            }
+         }
+         vals.push(maxSkills);
+      }
+      
+      let count = 1
+      while (teamsToRank.length > 0) {
+         let i = vals.indexOf(Math.max(...vals));
+         let winPct = vals.splice(i, 1);
+         let curTeam = teamsToRank.splice(i, 1);
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
+         count++;
+      }
+       
+
+      message.channel.send({
+         embed: {
+            color: 16711782,
+            title: "Norcal Team Rankings (awards)",
+            description: finalString
+         }
+      });
+   }
    else if (curMessageContent === 'f awardrank'){
 
       var teamsToRank = Array.from(teamsToRankOrig);
