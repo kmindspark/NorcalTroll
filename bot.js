@@ -240,7 +240,7 @@ client.on('message', message => {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + count + ".  **" + curTeam[0] + "**: " + Math.round(winPct) + "\n"
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
        
@@ -270,7 +270,7 @@ client.on('message', message => {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + count + ".  **" + curTeam[0] + "**: " + Math.round(winPct) + "\n"
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
        
@@ -298,7 +298,7 @@ client.on('message', message => {
          let i = vals.indexOf(Math.max(...vals));
          let winPct = vals.splice(i, 1);
          let curTeam = teamsToRank.splice(i, 1);
-         finalString = finalString + count + ".  **" + curTeam[0] + "**: " + Math.round(winPct * 10000) / 100 + "\%\n"
+         finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct * 10000) / 100 + "\%\n"
          count++;
       }
 
