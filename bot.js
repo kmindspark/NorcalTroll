@@ -148,6 +148,7 @@ client.on('message', message => {
                ** f orecord <team>:** Fitch gives you a record for the whole organization. \n \
                ** f winrank:** Fitch gives you a ranking of NorCal teams based on win percentages. \n \
                ** f awardrank:** Fitch gives you a ranking of NorCal teams based on awards. \n \
+               ** f skillsrank:** Fitch gives you a ranking of NorCal teams based on skills scores. \n \
                ** f events:** Fitch gives you a listing of upcoming events in California. \n \
                ** f members <team>:** Fitch gives you a list of the members on the team specified. \n \
                ** f matches <team> <optional opponent>:** Fitch gives you a listing of matches played by a team, and head-to-head if another team is given. \n \
@@ -247,7 +248,7 @@ client.on('message', message => {
       message.channel.send({
          embed: {
             color: 16711782,
-            title: "Norcal Team Rankings (awards)",
+            title: "Norcal Team Rankings (skills)",
             description: finalString
          }
       });
