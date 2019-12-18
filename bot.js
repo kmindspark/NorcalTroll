@@ -298,18 +298,14 @@ client.on('message', message => {
       curSeason = actualSeason
    }
    else if (curMessageContent === 'f winrank' || curMessageContent === 'f rank') {
-      //var teamsToRank = Array.from(teamsToRankOrig) //['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
+      var teamsToRank = Array.from(teamsToRankOrig) //['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
       //teamsToRank = ['315A', '315T', '315R', '315V', '315W', '315Y', '315K', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '7916A', '1350X'];
-      var teamsToRank = Array.from(teamsToRankOrig);
-
-      let messg = curMessageContent.split(" ");
-      if (messg.length == 3 && messg[2] === "all"){
-         curSeason = ""
-         teamsToRank = [...new Set(teamsToRankOrig.concat(teamsToRankAllTime))];
-      }
-
       var vals = [];
       let finalString = '';
+      for (i = 0; i < teamsToRank.length; i++) {
+         let curPercent = getWinPercent(teamsToRank[i], message);
+         vals.push(curPercent);
+      }
 
       let count = 1
       while (teamsToRank.length > 0) {
