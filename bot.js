@@ -220,7 +220,7 @@ client.on('message', message => {
          });
       })
    }
-   else if (curMessageContent === 'f skillsrank'){
+   else if (curMessageContent.includes('f skillsrank')){
       var teamsToRank = Array.from(teamsToRankOrig);
 
       let messg = curMessageContent.split(" ");
@@ -311,7 +311,7 @@ client.on('message', message => {
 
       var vals = [];
       let finalString = '';
-      
+
       for (i = 0; i < teamsToRank.length; i++) {
          let curPercent = getWinPercent(teamsToRank[i], message);
          vals.push(curPercent);
