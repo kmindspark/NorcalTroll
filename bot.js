@@ -220,7 +220,7 @@ client.on('message', message => {
          });
       })
    }
-   else if (curMessageContent.includes('f skillsrank')){
+   else if (curMessageContent === 'f skillsrank'){
       var teamsToRank = Array.from(teamsToRankOrig);
 
       let messg = curMessageContent.split(" ");
@@ -337,6 +337,10 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
+      if (teams[teams.length - 1] === "all"){
+         curSeason = ""
+         teams.pop()
+      }
       if (teams.length != 3 && teams.length != 4) {
          //bad case
       }
@@ -394,11 +398,16 @@ client.on('message', message => {
                   description: win + "-" + loss + "-" + tie
                }
             });
+            curSeason = actualSeason
          }
       }
    }
    else if (curMessageContent.includes('f arecord')) {
       let teams = curMessageContent.split(" ");
+      if (teams[teams.length - 1] === "all"){
+         curSeason = ""
+         teams.pop()
+      }
       if (teams.length != 4) {
          //bad case
       }
@@ -453,6 +462,7 @@ client.on('message', message => {
                description: win + "-" + loss + "-" + tie
             }
          });
+         curSeason = actualSeason
       }
    }
    else if (curMessageContent.includes('f matches')) {
