@@ -154,7 +154,8 @@ client.on('message', message => {
                ** f events:** Fitch gives you a listing of upcoming events in California. \n \
                ** f members <team>:** Fitch gives you a list of the members on the team specified. \n \
                ** f matches <team> <optional opponent>:** Fitch gives you a listing of matches played by a team, and head-to-head if another team is given. \n \
-               ** f amatches <team> <alliance>:** Fitch gives you a listing of matches played by an alliance of two teams with scores."
+               ** f amatches <team> <alliance>:** Fitch gives you a listing of matches played by an alliance of two teams with scores. \n \
+               ** NOTE:** Append 'all' to most queries to get all-time results."
          }
       });
    }
@@ -467,6 +468,10 @@ client.on('message', message => {
    }
    else if (curMessageContent.includes('f matches')) {
       let teams = curMessageContent.split(" ");
+      if (teams[teams.length - 1] === "all"){
+         curSeason = ""
+         teams.pop()
+      }
       if (teams.length != 3 && teams.length != 4) {
          //bad case
       }
@@ -562,10 +567,15 @@ client.on('message', message => {
                description: totalMatches
             }
          });
+         curSeason = actualSeason
       }
    }
    else if (curMessageContent.includes('f amatches')) {
       let teams = curMessageContent.split(" ");
+      if (teams[teams.length - 1] === "all"){
+         curSeason = ""
+         teams.pop()
+      }
       if (teams.length != 4) {
          //bad case
       }
@@ -650,10 +660,15 @@ client.on('message', message => {
                description: totalMatches
             }
          });
+         curSeason = actualSeason
       }
    }
    else if (curMessageContent.includes('f orecord')) {
       let teams = curMessageContent.split(" ");
+      if (teams[teams.length - 1] === "all"){
+         curSeason = ""
+         teams.pop()
+      }
       if (teams.length == 3) {
          var teamList = [];
          teamList = [teams[2] + "A", teams[2] + "B", teams[2] + "C", teams[2] + "D", teams[2] + "E", teams[2] + "F", teams[2] + "G", teams[2] + "H", teams[2] + "J", teams[2] + "K", teams[2] + "L", teams[2] + "M", teams[2] + "N", teams[2] + "P", teams[2] + "R", teams[2] + "S", teams[2] + "T", teams[2] + "U", teams[2] + "V", teams[2] + "W", teams[2] + "X", teams[2] + "Y", teams[2] + "Z"]
@@ -705,6 +720,8 @@ client.on('message', message => {
                description: win + "-" + loss + "-" + tie
             }
          });
+
+         curSeason = actualSeason
       }
    }
    else if (curMessageContent.includes('f predict')) {
@@ -742,16 +759,16 @@ client.on('message', message => {
    else if ((message.member.displayName.includes("NightBlaze") || message.member.displayName.includes("eirc")) && myRandom(50)) {
       message.channel.send("315x shoulda picked Lewie at worlds");
    }
-   else if (message.member.displayName.includes("Kau") && myRandom(100)) {
+   else if (message.member.displayName.includes("Kau") && myRandom(150)) {
       message.channel.send("Mooooo! :cow:");
    }
-   else if (message.member.roles.find("name", "315") && myRandom(110)) {
+   else if (message.member.roles.find("name", "315") && myRandom(150)) {
       message.channel.send("315 throwers");
    }
-   else if (message.member.roles.find("name", "139") && myRandom(110)) {
+   else if (message.member.roles.find("name", "139") && myRandom(150)) {
       message.channel.send("139 is fake Gael Force :rofl:");
    }
-   else if (message.member.roles.find("name", "5327") && myRandom(60)) {
+   else if (message.member.roles.find("name", "5327") && myRandom(150)) {
       message.channel.send("Notebook tryhards");
    }
    else if (message.member.roles.find("name", "7916") && myRandom(50)) {
