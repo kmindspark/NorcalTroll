@@ -260,6 +260,7 @@ client.on('message', message => {
             description: finalString
          }
       });
+      curSeason = actualSeason
    }
    else if (curMessageContent.includes('f awardrank')){
       var teamsToRank = Array.from(teamsToRankOrig);
@@ -323,6 +324,7 @@ client.on('message', message => {
             description: finalString
          }
       });
+      curSeason = actualSeason
    }
    else if (curMessageContent.includes('f record')) {
       let teams = curMessageContent.split(" ");
