@@ -6,8 +6,8 @@ const client = new Discord.Client();
 let cumulativeNames = ""
 let curTeam = ""
 let memberCount = 0
-let actualSeason = "season=Tower%20Takeover&"
-let curSeason = "season=Tower%20Takeover&"
+let actualSeason = "season=Change%20Up&"
+let curSeason = "season=Change%20Up&"
 
 var teamsToRankOrig = ['319A', '319K', '319X', '319Z', '315A', '315T', '315R', '315V', '315W', '315Y', '315K','1669X', '3303D', '5776E', '5776T', '5776X', '5776A', '5776P', '5327A', '5327B', '5327C', '5327E', '5327V', '5327Z', '1350X', '13931S', '8000A', '8000B', '8000C', '8000D', '81818A', '81818X'];
 var teamsToRankAllTime = ['315X', '315G', '315J', '315Z', '315R', '920C', '5776A', '5776E', '5776T', '5776X', '86868R', '5327B', '5327C', '5327S', '5327R', '5327X', '139A', '7916A', '21246D', '8000A', '8000B', '8000C', '8000D', '22095A', '315Y', '139Z', '8000F', '1350X', '1350Z'];
@@ -165,7 +165,7 @@ client.on('message', message => {
    else if (curMessageContent.includes('fitch') && (curMessageContent.includes("made you") || curMessageContent.include("created you") || curMessageContent.includes("made u") || curMessageContent.include("created u"))) {
       message.reply(':cow: :cow:');
    }
-   
+
    else if (curMessageContent === 'f events') {
       let cumulative = ""
       let resp = httpGet("https://api.vexdb.io/v1/get_events?region=California&status=future");
@@ -184,7 +184,7 @@ client.on('message', message => {
          let oldcumulative = cumulative
          cumulative += eventDate + ": [" + eventName + "](" + "https://www.robotevents.com/robot-competitions/vex-robotics-competition/" + result[i].sku + ".html)";
          if (cumulative.length > 1980) {
-            cumulative = oldcumulative 
+            cumulative = oldcumulative
             cumulative = cumulative + "\n --MESSAGE TRIMMED--"
             break;
          }
@@ -244,7 +244,7 @@ client.on('message', message => {
          }
          vals.push(maxSkills);
       }
-      
+
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
@@ -253,7 +253,7 @@ client.on('message', message => {
          finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
-      
+
       message.channel.send({
          embed: {
             color: 16711782,
@@ -280,7 +280,7 @@ client.on('message', message => {
          let result = JSON.parse(resp).result;
          vals.push(result.length);
       }
-      
+
       let count = 1
       while (teamsToRank.length > 0) {
          let i = vals.indexOf(Math.max(...vals));
@@ -289,7 +289,7 @@ client.on('message', message => {
          finalString = finalString + count + ". " + curTeam[0] + ": " + Math.round(winPct) + "\n"
          count++;
       }
-       
+
       message.channel.send({
          embed: {
             color: 16711782,
